@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://6xv7d5jfin1n"]
+
+[ext_resource type="Script" path="res://Content/Scenes/Weapons/Weapon Holder/Scripts/weapon_holder.gd" id="1_sduen"]
+
+[node name="WeaponHolder" type="Node2D"]
+position = Vector2(0, -20)
+script = ExtResource("1_sduen")

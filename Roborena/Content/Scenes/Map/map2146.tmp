@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0clioi6ws2sc"]
+
+[ext_resource type="Script" path="res://Content/Scenes/Map/Scripts/border.gd" id="1_687kl"]
+[ext_resource type="Script" path="res://Content/Scenes/Map/Scripts/spawn_area.gd" id="2_v2dc1"]
+[ext_resource type="Script" path="res://Content/Scenes/Map/Scripts/enemy_spwaner.gd" id="3_ttw4o"]
+[ext_resource type="Script" path="res://Content/Scenes/Map/Scripts/spawn_point_generator.gd" id="4_prayw"]
+
+[node name="Map" type="Node2D"]
+
+[node name="Border" type="StaticBody2D" parent="."]
+script = ExtResource("1_687kl")
+
+[node name="BorderCollider" type="CollisionPolygon2D" parent="Border"]
+
+[node name="SpawnArea" type="StaticBody2D" parent="."]
+script = ExtResource("2_v2dc1")
+
+[node name="SpawnAreaCollider" type="CollisionPolygon2D" parent="SpawnArea"]
+
+[node name="EnemySpwaner" type="Node2D" parent="."]
+script = ExtResource("3_ttw4o")
+
+[node name="SpawnPointGenerator" type="Node2D" parent="EnemySpwaner"]
+script = ExtResource("4_prayw")
+
+[node name="DamageNumberHolder" type="Node2D" parent="."]

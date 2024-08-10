@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://b0clioi6ws2sc"]
+
+[ext_resource type="PackedScene" uid="uid://c3yv8gs0u2tei" path="res://Content/Scenes/Map/border.tscn" id="1_6lifd"]
+[ext_resource type="Script" path="res://Content/Scenes/Map/Scripts/map_manager.gd" id="1_htjlc"]
+[ext_resource type="PackedScene" uid="uid://dfy5qygyn54jj" path="res://Content/Scenes/Map/spawn_area.tscn" id="2_aqf13"]
+[ext_resource type="Script" path="res://Content/Scenes/Map/Scripts/enemy_spwaner.gd" id="3_ttw4o"]
+[ext_resource type="Script" path="res://Content/Scenes/Map/Scripts/spawn_point_generator.gd" id="4_prayw"]
+[ext_resource type="Script" path="res://Content/Scenes/Map/Scripts/damage_number_holder.gd" id="5_rudr6"]
+[ext_resource type="PackedScene" uid="uid://bivnb4rmk5fef" path="res://Content/Scenes/Map/damage_number.tscn" id="6_14cuh"]
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_htjlc")
+
+[node name="Border" parent="." instance=ExtResource("1_6lifd")]
+
+[node name="SpawnArea" parent="." instance=ExtResource("2_aqf13")]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 0
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("3_ttw4o")
+
+[node name="SpawnPointGenerator" type="Node2D" parent="EnemySpawner"]
+unique_name_in_owner = true
+script = ExtResource("4_prayw")
+
+[node name="SpawnTimer" type="Timer" parent="EnemySpawner"]
+wait_time = 0.667
+autostart = true
+
+[node name="DamageNumberHolder" type="Node2D" parent="."]
+script = ExtResource("5_rudr6")
+damage_number_scene = ExtResource("6_14cuh")
+
+[node name="EnemyHolder" type="Node2D" parent="."]
+
+[connection signal="timeout" from="EnemySpawner/SpawnTimer" to="EnemySpawner" method="_on_spawn_timer_timeout"]

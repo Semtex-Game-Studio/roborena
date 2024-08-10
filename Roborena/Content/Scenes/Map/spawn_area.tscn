@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfy5qygyn54jj"]
+
+[ext_resource type="Script" path="res://Content/Scenes/Map/Scripts/spawn_area.gd" id="1_73fv3"]
+
+[node name="SpawnArea" type="StaticBody2D"]
+script = ExtResource("1_73fv3")
+
+[node name="SpawnAreaCollider" type="CollisionPolygon2D" parent="."]
+unique_name_in_owner = true

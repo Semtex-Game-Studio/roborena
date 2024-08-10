@@ -1,0 +1,157 @@
+[gd_scene load_steps=35 format=3 uid="uid://ryiwh5p1pxl7"]
+
+[ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/player_character.gd" id="1_8w1lt"]
+[ext_resource type="Texture2D" uid="uid://bwrc67unir40f" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_000.png" id="2_60uf7"]
+[ext_resource type="Texture2D" uid="uid://cdi7voq8m1twf" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_001.png" id="3_s0j5k"]
+[ext_resource type="Texture2D" uid="uid://haedgepit57e" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_002.png" id="4_00rlm"]
+[ext_resource type="Texture2D" uid="uid://r06t13svg1gr" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_003.png" id="5_6q8h0"]
+[ext_resource type="Texture2D" uid="uid://c2yikbnr6sqwv" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_004.png" id="6_gg28h"]
+[ext_resource type="Texture2D" uid="uid://giyhqvb1fw5x" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_005.png" id="7_ln647"]
+[ext_resource type="Texture2D" uid="uid://xq4auk10m1so" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_006.png" id="8_fncox"]
+[ext_resource type="Texture2D" uid="uid://bqm4rc22ftv4y" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_007.png" id="9_y4knj"]
+[ext_resource type="Texture2D" uid="uid://owony8adlhba" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_008.png" id="10_vu4a4"]
+[ext_resource type="Texture2D" uid="uid://cvoxfaiffyspd" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_009.png" id="11_2md3u"]
+[ext_resource type="Texture2D" uid="uid://ch4ev4jo2xfaa" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_010.png" id="12_8saoc"]
+[ext_resource type="Texture2D" uid="uid://b3jr47cglewcs" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_011.png" id="13_ikyr8"]
+[ext_resource type="Texture2D" uid="uid://nrdin1p1lljp" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_012.png" id="14_2cxpo"]
+[ext_resource type="Texture2D" uid="uid://c5g52ec03nyck" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_013.png" id="15_oln1d"]
+[ext_resource type="Texture2D" uid="uid://758i0aj3ofmh" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_014.png" id="16_o6fsa"]
+[ext_resource type="Texture2D" uid="uid://8pklnirgjqw2" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_015.png" id="17_klmcx"]
+[ext_resource type="Texture2D" uid="uid://cm62yjb51m43x" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_016.png" id="18_vb4pg"]
+[ext_resource type="Texture2D" uid="uid://blth1g61p7255" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_017.png" id="19_4x14w"]
+[ext_resource type="Texture2D" uid="uid://c4yoc51t84ppj" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_000.png" id="20_80r7y"]
+[ext_resource type="Texture2D" uid="uid://dmat1ceh22w3i" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_001.png" id="21_a0fat"]
+[ext_resource type="Texture2D" uid="uid://b4rkqm3284t20" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_002.png" id="22_ffy5u"]
+[ext_resource type="Texture2D" uid="uid://b6bodnqdftd6w" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_003.png" id="23_kejf7"]
+[ext_resource type="Texture2D" uid="uid://des6mke4yplxu" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_004.png" id="24_nwo3x"]
+[ext_resource type="Texture2D" uid="uid://c4o3b7fjvug1t" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_005.png" id="25_k8r7l"]
+[ext_resource type="Texture2D" uid="uid://b4qcitphpsanw" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_006.png" id="26_fn0lc"]
+[ext_resource type="Texture2D" uid="uid://dos13358ilnhb" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_007.png" id="27_5frib"]
+[ext_resource type="Texture2D" uid="uid://bl3x0l6a848cg" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_008.png" id="28_m4dne"]
+[ext_resource type="Texture2D" uid="uid://bkucg1mp1on70" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_009.png" id="29_ppk4n"]
+[ext_resource type="Texture2D" uid="uid://5caro7krp6hk" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_010.png" id="30_2kll6"]
+[ext_resource type="PackedScene" uid="uid://btu4sqmpkdh3v" path="res://Content/Scenes/Player Character/dash.tscn" id="31_bf8ji"]
+[ext_resource type="Texture2D" uid="uid://drijfpl0wv45w" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_011.png" id="31_bmplh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vtggs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_60uf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s0j5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_00rlm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6q8h0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gg28h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ln647")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fncox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_y4knj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vu4a4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2md3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8saoc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ikyr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2cxpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_oln1d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_o6fsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_klmcx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_vb4pg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_4x14w")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_80r7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_a0fat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ffy5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_kejf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_nwo3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_k8r7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_fn0lc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_5frib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_m4dne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ppk4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_2kll6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_bmplh")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u3lay"]
+radius = 20.025
+
+[node name="PlayerCharacter" type="CharacterBody2D"]
+collision_mask = 128
+script = ExtResource("1_8w1lt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.175, 0.175)
+sprite_frames = SubResource("SpriteFrames_vtggs")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.579839
+offset = Vector2(0, -188.571)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u3lay")
+
+[node name="Dash" parent="." instance=ExtResource("31_bf8ji")]

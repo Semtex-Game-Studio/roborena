@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnq2hbjjnx7br"]
+
+[ext_resource type="Script" path="res://Content/Scenes/Weapons/Ranged/Base Ranged Weapon/Scripts/base_ranged_weapon.gd" id="1_sruun"]
+[ext_resource type="Script" path="res://Content/Scenes/Weapons/Ranged/Base Ranged Weapon/Scripts/enemy_detector.gd" id="2_bju3r"]
+[ext_resource type="PackedScene" uid="uid://bqmbqd3popqo8" path="res://Content/Scenes/Weapons/Projectiles/Basic Projectile 1/basic_projectile_1.tscn" id="2_ecyll"]
+[ext_resource type="Texture2D" uid="uid://bue7ffv83gpy8" path="res://Content/Scenes/Weapons/Ranged/Base Ranged Weapon/Assets/assaultrifle2.png" id="4_usi4k"]
+[ext_resource type="Script" path="res://Content/Scenes/Weapons/Ranged/Base Ranged Weapon/Scripts/weapon_sprite.gd" id="5_2csvg"]
+[ext_resource type="Script" path="res://Content/Scenes/Weapons/Ranged/Base Ranged Weapon/Scripts/projectile_spawner.gd" id="6_u5i66"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ktfv1"]
+resource_local_to_scene = true
+
+[node name="BaseRangedWeapon" type="Node2D"]
+script = ExtResource("1_sruun")
+projectile_scene = ExtResource("2_ecyll")
+
+[node name="EnemyDetector" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_bju3r")
+
+[node name="WeaponRange" type="CollisionShape2D" parent="EnemyDetector"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_ktfv1")
+
+[node name="WeaponSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.113, 0.113)
+texture = ExtResource("4_usi4k")
+script = ExtResource("5_2csvg")
+
+[node name="RateOfFire" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="ProjectileSpawner" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(44.07, -3.39)
+scale = Vector2(0.113, 0.113)
+script = ExtResource("6_u5i66")
+
+[connection signal="timeout" from="RateOfFire" to="." method="_on_rate_of_fire_timeout"]

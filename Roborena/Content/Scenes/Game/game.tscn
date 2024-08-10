@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://4g3dj6fypkma"]
+
+[ext_resource type="PackedScene" uid="uid://b0clioi6ws2sc" path="res://Content/Scenes/Map/map.tscn" id="1_0j7iy"]
+[ext_resource type="PackedScene" uid="uid://ryiwh5p1pxl7" path="res://Content/Scenes/Player Character/player_character.tscn" id="1_2gd6d"]
+[ext_resource type="PackedScene" uid="uid://6xv7d5jfin1n" path="res://Content/Scenes/Weapons/Weapon Holder/weapon_holder.tscn" id="2_nflvd"]
+[ext_resource type="PackedScene" uid="uid://dnq2hbjjnx7br" path="res://Content/Scenes/Weapons/Ranged/Base Ranged Weapon/base_ranged_weapon.tscn" id="3_gw6ai"]
+
+[node name="Game" type="Node2D"]
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_2gd6d")]
+
+[node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
+limit_left = -1100
+limit_top = -1100
+limit_right = 1100
+limit_bottom = 1100
+
+[node name="WeaponHolder" parent="PlayerCharacter" instance=ExtResource("2_nflvd")]
+
+[node name="BaseRangedWeapon6" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
+position = Vector2(0, 20)
+weapon_range_value = 300
+fire_rate_value = 3.0
+base_damage = 10.0
+damage_modifier = 1.0
+crit_chance_value = 0.4
+crit_modifier = 2.0
+
+[node name="BaseRangedWeapon7" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
+position = Vector2(0, 20)
+weapon_range_value = 300
+fire_rate_value = 3.0
+base_damage = 10.0
+damage_modifier = 1.0
+crit_chance_value = 0.4
+crit_modifier = 2.0
+
+[node name="BaseRangedWeapon8" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
+position = Vector2(0, 20)
+weapon_range_value = 300
+fire_rate_value = 3.0
+base_damage = 10.0
+damage_modifier = 1.0
+crit_chance_value = 0.4
+crit_modifier = 2.0
+
+[node name="BaseRangedWeapon9" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
+position = Vector2(0, 20)
+weapon_range_value = 300
+fire_rate_value = 3.0
+base_damage = 10.0
+damage_modifier = 1.0
+crit_chance_value = 0.4
+crit_modifier = 2.0
+
+[node name="BaseRangedWeapon10" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
+position = Vector2(0, 20)
+weapon_range_value = 400
+fire_rate_value = 3.0
+base_damage = 10.0
+damage_modifier = 1.0
+crit_chance_value = 0.4
+crit_modifier = 2.0
+
+[node name="Map" parent="." instance=ExtResource("1_0j7iy")]
+rotation_angle = 0.0
