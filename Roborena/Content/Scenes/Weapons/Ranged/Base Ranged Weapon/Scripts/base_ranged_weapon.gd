@@ -24,8 +24,8 @@ var critical_hit: bool = false
 var rng = RandomNumberGenerator.new()
 
 func _ready():
-	weapon_range.shape.radius = weapon_range_value	# Set the weapon range
-	rate_of_fire.set_wait_time(1 / fire_rate_value)	# Set the fire rate
+	weapon_range.shape.radius = weapon_range_value
+	rate_of_fire.set_wait_time(1 / fire_rate_value)
 
 
 func _process(delta):
@@ -41,7 +41,7 @@ func aim_at_closest_enemy():
 		
 		if rate_of_fire.is_stopped() and not cooling_down:
 			cooling_down = true
-			projectile_spawner.shoot_projectile(projectile_scene, weapon_range_value, calculate_damage(), critical_hit, knock_back_force)
+			projectile_spawner.shoot_projectile(weapon_range_value, calculate_damage(), critical_hit, knock_back_force)
 			rate_of_fire.start()
 
 

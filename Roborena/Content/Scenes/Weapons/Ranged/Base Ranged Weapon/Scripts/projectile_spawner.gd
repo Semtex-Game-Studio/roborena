@@ -1,15 +1,52 @@
 extends Marker2D
 
 
-func shoot_projectile(projectile_scene: PackedScene, weapon_range: int, damage: float, critical_hit: bool, knock_back_force: float):
-	if projectile_scene:
-		var new_projectile = projectile_scene.instantiate()
-		new_projectile.global_position = global_position
-		new_projectile.global_rotation = global_rotation
+# Pool to reuse bullets
+var projectile_pool: Array[Area2D] = []
+var active_projectiles: Array[Area2D] = []
+
+# The maximum number of bullets you want to pool initially
+@export var initial_pool_size: int = 10
+
+# Reference to the projectile scene
+@onready var weapon_node = get_parent()
+@onready var projectile_scene: PackedScene = weapon_node.projectile_scene
+
+
+# Function to shoot a projectile
+func shoot_projectile(weapon_range: int, damage: float, critical_hit: bool, knock_back_force: float):
+	var projectile = get_pooled_bullet()
+
+	projectile.global_position = global_position
+	projectile.global_rotation = global_rotation
+	
+	projectile.weapon_range = weapon_range
+	projectile.damage = damage
+	projectile.critical_hit = critical_hit
+	projectile.knock_back_force = knock_back_force
+	
+	projectile.show()
+	active_projectiles.append(projectile)
 		
-		new_projectile.weapon_range = weapon_range
-		new_projectile.damage = damage
-		new_projectile.critical_hit = critical_hit
-		new_projectile.knock_back_force = knock_back_force
-		
-		add_child(new_projectile)
+
+# Get a bullet from the pool or create a new one if the pool is empty
+func get_pooled_bullet() -> Area2D:
+	if projectile_pool.size() > 0:
+		var bullet = projectile_pool.pop_back()
+		bullet._reset_bullet()
+		return bullet
+	else:
+		return create_bullet()
+
+# Create a new bullet instance
+func create_bullet() -> Area2D:
+	var new_projectile = projectile_scene.instantiate() as Area2D
+	new_projectile.hide()
+	add_child(new_projectile)
+	return new_projectile
+
+# Handle bullet deactivation and return it to the pool
+func _on_bullet_deactivated(projectile: Area2D):
+	projectile.hide()
+	active_projectiles.erase(projectile)
+	projectile_pool.append(projectile)

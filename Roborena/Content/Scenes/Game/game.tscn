@@ -19,8 +19,8 @@ limit_bottom = 1100
 
 [node name="BaseRangedWeapon6" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
 position = Vector2(0, 20)
-weapon_range_value = 300
-fire_rate_value = 3.0
+weapon_range_value = 500
+fire_rate_value = 1.0
 base_damage = 10.0
 damage_modifier = 1.0
 crit_chance_value = 0.4
@@ -28,8 +28,8 @@ crit_modifier = 2.0
 
 [node name="BaseRangedWeapon7" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
 position = Vector2(0, 20)
-weapon_range_value = 300
-fire_rate_value = 3.0
+weapon_range_value = 500
+fire_rate_value = 1.0
 base_damage = 10.0
 damage_modifier = 1.0
 crit_chance_value = 0.4
@@ -37,8 +37,8 @@ crit_modifier = 2.0
 
 [node name="BaseRangedWeapon8" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
 position = Vector2(0, 20)
-weapon_range_value = 300
-fire_rate_value = 3.0
+weapon_range_value = 500
+fire_rate_value = 1.0
 base_damage = 10.0
 damage_modifier = 1.0
 crit_chance_value = 0.4
@@ -46,8 +46,8 @@ crit_modifier = 2.0
 
 [node name="BaseRangedWeapon9" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
 position = Vector2(0, 20)
-weapon_range_value = 300
-fire_rate_value = 3.0
+weapon_range_value = 500
+fire_rate_value = 1.0
 base_damage = 10.0
 damage_modifier = 1.0
 crit_chance_value = 0.4
@@ -55,8 +55,17 @@ crit_modifier = 2.0
 
 [node name="BaseRangedWeapon10" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
 position = Vector2(0, 20)
-weapon_range_value = 400
-fire_rate_value = 3.0
+weapon_range_value = 500
+fire_rate_value = 1.0
+base_damage = 10.0
+damage_modifier = 1.0
+crit_chance_value = 0.4
+crit_modifier = 2.0
+
+[node name="BaseRangedWeapon11" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
+position = Vector2(0, 20)
+weapon_range_value = 500
+fire_rate_value = 1.0
 base_damage = 10.0
 damage_modifier = 1.0
 crit_chance_value = 0.4
