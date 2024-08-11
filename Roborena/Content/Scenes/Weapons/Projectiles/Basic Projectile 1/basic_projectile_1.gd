@@ -1,8 +1,11 @@
 extends Area2D
 
+
 @export var speed: int
 
+
 @onready var projectile_spawner = get_parent()
+
 
 var velocity: Vector2
 

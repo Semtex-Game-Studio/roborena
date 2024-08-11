@@ -8,6 +8,7 @@
 [node name="Game" type="Node2D"]
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_2gd6d")]
+motion_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
 limit_left = -1100
@@ -19,57 +20,48 @@ limit_bottom = 1100
 
 [node name="BaseRangedWeapon6" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
 position = Vector2(0, 20)
-weapon_range_value = 500
-fire_rate_value = 1.0
-base_damage = 10.0
-damage_modifier = 1.0
-crit_chance_value = 0.4
+base_damage = 5.0
+crit_chance_value = 0.1
 crit_modifier = 2.0
+damage_modifier = 1.0
+fire_rate_value = 2.0
+weapon_range_value = 500
 
 [node name="BaseRangedWeapon7" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
 position = Vector2(0, 20)
-weapon_range_value = 500
-fire_rate_value = 1.0
-base_damage = 10.0
-damage_modifier = 1.0
-crit_chance_value = 0.4
+base_damage = 5.0
+crit_chance_value = 0.1
 crit_modifier = 2.0
+damage_modifier = 1.0
+fire_rate_value = 2.0
+weapon_range_value = 500
 
 [node name="BaseRangedWeapon8" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
 position = Vector2(0, 20)
-weapon_range_value = 500
-fire_rate_value = 1.0
-base_damage = 10.0
-damage_modifier = 1.0
-crit_chance_value = 0.4
+base_damage = 5.0
+crit_chance_value = 0.1
 crit_modifier = 2.0
+damage_modifier = 1.0
+fire_rate_value = 2.0
+weapon_range_value = 500
 
 [node name="BaseRangedWeapon9" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
 position = Vector2(0, 20)
-weapon_range_value = 500
-fire_rate_value = 1.0
-base_damage = 10.0
-damage_modifier = 1.0
-crit_chance_value = 0.4
+base_damage = 5.0
+crit_chance_value = 0.1
 crit_modifier = 2.0
+damage_modifier = 1.0
+fire_rate_value = 2.0
+weapon_range_value = 500
 
 [node name="BaseRangedWeapon10" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
 position = Vector2(0, 20)
-weapon_range_value = 500
-fire_rate_value = 1.0
-base_damage = 10.0
-damage_modifier = 1.0
-crit_chance_value = 0.4
+base_damage = 5.0
+crit_chance_value = 0.1
 crit_modifier = 2.0
-
-[node name="BaseRangedWeapon11" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
-position = Vector2(0, 20)
-weapon_range_value = 500
-fire_rate_value = 1.0
-base_damage = 10.0
 damage_modifier = 1.0
-crit_chance_value = 0.4
-crit_modifier = 2.0
+fire_rate_value = 2.0
+weapon_range_value = 500
 
 [node name="Map" parent="." instance=ExtResource("1_0j7iy")]
 rotation_angle = 0.0

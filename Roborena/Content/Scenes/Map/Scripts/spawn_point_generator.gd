@@ -1,8 +1,9 @@
 extends Node2D
 
+@onready var player_character = get_node("/root/Game/PlayerCharacter")
 @onready var spawn_area_polygon_points = %SpawnArea.get_spawn_area_polygon_points()
 @onready var bounding_box = get_bounding_box(spawn_area_polygon_points)
-
+@export var occlusion_radius_player: float = 125.0
 
 # Get the bounding box for the polygon
 func get_bounding_box(polygon_points: Array) -> Rect2:
@@ -41,11 +42,16 @@ func is_point_in_polygon(point: Vector2, polygon_points: Array) -> bool:
 		j = i
 	return inside
 
+# Check if a point is within the occlusion radius around the player
+func is_point_within_occlusion_radius(point: Vector2, player_position: Vector2, radius: float) -> bool:
+	return point.distance_to(player_position) < radius
+
 func get_spawn_point() -> Vector2:
 	var point = get_random_point_within_bounding_box(bounding_box)
-	while not is_point_in_polygon(point, spawn_area_polygon_points):
+	while not is_point_in_polygon(point, spawn_area_polygon_points) or is_point_within_occlusion_radius(point, player_character.position, occlusion_radius_player):
 		point = get_random_point_within_bounding_box(bounding_box)
 	return point
+
 
 ## Visualize spawn points
 #func _draw():

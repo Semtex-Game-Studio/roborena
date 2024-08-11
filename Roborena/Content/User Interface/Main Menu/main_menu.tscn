@@ -1,0 +1,120 @@
+[gd_scene load_steps=5 format=3 uid="uid://b55n40v0c6tmu"]
+
+[ext_resource type="Texture2D" uid="uid://cuaap81id0alb" path="res://Content/User Interface/Main Menu/Assets/MainMenuBackgroundGradient.png" id="1_esyxy"]
+[ext_resource type="Script" path="res://Content/User Interface/Main Menu/Scripts/main_menu.gd" id="1_gfanm"]
+[ext_resource type="FontFile" uid="uid://yrvk65l813w7" path="res://Content/User Interface/Main Menu/Assets/font_edo/edo.ttf" id="2_nqbd1"]
+[ext_resource type="PackedScene" uid="uid://gncu820iy363" path="res://Content/User Interface/OptionsMenu/options_menu.tscn" id="4_mlsjg"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gfanm")
+
+[node name="MainMenuBackground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_esyxy")
+expand_mode = 1
+
+[node name="MainMenuContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="TitleVBox" type="VBoxContainer" parent="MainMenuContainer"]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="Separator" type="Control" parent="MainMenuContainer/TitleVBox"]
+layout_mode = 2
+
+[node name="GameTitle" type="Label" parent="MainMenuContainer/TitleVBox"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
+theme_override_colors/font_outline_color = Color(0.491685, 0, 0.0707682, 1)
+theme_override_constants/shadow_offset_x = 24
+theme_override_constants/shadow_offset_y = 24
+theme_override_constants/outline_size = 32
+theme_override_fonts/font = ExtResource("2_nqbd1")
+theme_override_font_sizes/font_size = 128
+text = "Roborena"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButtonsHBox" type="HBoxContainer" parent="MainMenuContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MenuButtonsVBox" type="VBoxContainer" parent="MainMenuContainer/MenuButtonsHBox"]
+layout_mode = 2
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="Control" type="Control" parent="MainMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MainMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="MainMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="MainMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+layout_mode = 2
+
+[node name="Control5" type="Control" parent="MainMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+layout_mode = 2
+
+[node name="Control6" type="Control" parent="MainMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+layout_mode = 2
+
+[node name="Control7" type="Control" parent="MainMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+layout_mode = 2
+
+[node name="Control8" type="Control" parent="MainMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+layout_mode = 2
+
+[node name="ButtonStartGame" type="Button" parent="MainMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(384, 96)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nqbd1")
+theme_override_font_sizes/font_size = 48
+text = "Start Game
+"
+
+[node name="ButtonOptionsMenu" type="Button" parent="MainMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(384, 96)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nqbd1")
+theme_override_font_sizes/font_size = 48
+text = "Options"
+
+[node name="ButtonQuitGame" type="Button" parent="MainMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(384, 96)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nqbd1")
+theme_override_font_sizes/font_size = 48
+text = "Quit Game"
+
+[node name="OptionsMenu" parent="." instance=ExtResource("4_mlsjg")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
