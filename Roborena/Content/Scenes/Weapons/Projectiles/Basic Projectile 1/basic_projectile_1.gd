@@ -20,7 +20,7 @@ var has_hit: bool = false
 
 # Track the distance traveled
 var distance_traveled: float = 0.0
-
+var bullet_spread = deg_to_rad(randf_range(-1,1)*10)
 
 func _physics_process(delta):
 	velocity = Vector2(speed, 0).rotated(rotation)

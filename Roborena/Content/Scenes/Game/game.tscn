@@ -1,11 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://4g3dj6fypkma"]
+[gd_scene load_steps=7 format=3 uid="uid://4g3dj6fypkma"]
 
 [ext_resource type="PackedScene" uid="uid://b0clioi6ws2sc" path="res://Content/Scenes/Map/map.tscn" id="1_0j7iy"]
 [ext_resource type="PackedScene" uid="uid://ryiwh5p1pxl7" path="res://Content/Scenes/Player Character/player_character.tscn" id="1_2gd6d"]
+[ext_resource type="Script" path="res://Content/Scenes/Game/Scripts/game.gd" id="1_p8ala"]
+[ext_resource type="PackedScene" uid="uid://chpkt3lwydgne" path="res://Content/User Interface/Pause Menu/pause_menu.tscn" id="2_lct4q"]
 [ext_resource type="PackedScene" uid="uid://6xv7d5jfin1n" path="res://Content/Scenes/Weapons/Weapon Holder/weapon_holder.tscn" id="2_nflvd"]
 [ext_resource type="PackedScene" uid="uid://dnq2hbjjnx7br" path="res://Content/Scenes/Weapons/Ranged/Base Ranged Weapon/base_ranged_weapon.tscn" id="3_gw6ai"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_p8ala")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_lct4q")]
+unique_name_in_owner = true
+visible = false
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_2gd6d")]
 motion_mode = 1
@@ -21,46 +30,61 @@ limit_bottom = 1100
 [node name="BaseRangedWeapon6" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
 position = Vector2(0, 20)
 base_damage = 5.0
+bullet_spread = 3.0
 crit_chance_value = 0.1
 crit_modifier = 2.0
 damage_modifier = 1.0
-fire_rate_value = 2.0
+fire_rate_value = 1.5
 weapon_range_value = 500
 
 [node name="BaseRangedWeapon7" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
 position = Vector2(0, 20)
 base_damage = 5.0
+bullet_spread = 3.0
 crit_chance_value = 0.1
 crit_modifier = 2.0
 damage_modifier = 1.0
-fire_rate_value = 2.0
+fire_rate_value = 1.0
 weapon_range_value = 500
 
 [node name="BaseRangedWeapon8" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
 position = Vector2(0, 20)
 base_damage = 5.0
+bullet_spread = 3.0
 crit_chance_value = 0.1
 crit_modifier = 2.0
 damage_modifier = 1.0
-fire_rate_value = 2.0
+fire_rate_value = 0.7
 weapon_range_value = 500
 
 [node name="BaseRangedWeapon9" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
 position = Vector2(0, 20)
 base_damage = 5.0
+bullet_spread = 3.0
 crit_chance_value = 0.1
 crit_modifier = 2.0
 damage_modifier = 1.0
-fire_rate_value = 2.0
+fire_rate_value = 0.7
 weapon_range_value = 500
 
 [node name="BaseRangedWeapon10" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
 position = Vector2(0, 20)
 base_damage = 5.0
+bullet_spread = 3.0
 crit_chance_value = 0.1
 crit_modifier = 2.0
 damage_modifier = 1.0
-fire_rate_value = 2.0
+fire_rate_value = 1.1
+weapon_range_value = 500
+
+[node name="BaseRangedWeapon11" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
+position = Vector2(0, 20)
+base_damage = 5.0
+bullet_spread = 3.0
+crit_chance_value = 0.1
+crit_modifier = 2.0
+damage_modifier = 1.0
+fire_rate_value = 0.9
 weapon_range_value = 500
 
 [node name="Map" parent="." instance=ExtResource("1_0j7iy")]

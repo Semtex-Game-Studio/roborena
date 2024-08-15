@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=3 uid="uid://tx6pac5dhx0"]
+
+[ext_resource type="Script" path="res://Content/Scenes/Enemies/Class/enemy_class.gd" id="1_swbco"]
+[ext_resource type="Texture2D" uid="uid://brt5545tl1ldr" path="res://Content/Scenes/Enemies/Dummy/Assets/shade-s-trainingdummy.png" id="2_mdi5c"]
+[ext_resource type="PackedScene" uid="uid://buofssg8pcaca" path="res://Content/Scenes/Components/Hurtboxes/hurtbox.tscn" id="3_rb8tb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5dpew"]
+radius = 90.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1xuob"]
+radius = 128.0
+height = 522.0
+
+[sub_resource type="Animation" id="Animation_ogjta"]
+length = 0.2
+step = 0.01
+
+[sub_resource type="Animation" id="Animation_fsewp"]
+resource_name = "hit_flash"
+length = 0.15
+step = 0.01
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d3wem"]
+_data = {
+"RESET": SubResource("Animation_ogjta"),
+"hit_flash": SubResource("Animation_fsewp")
+}
+
+[sub_resource type="Gradient" id="Gradient_ltdfo"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vxvt0"]
+gradient = SubResource("Gradient_ltdfo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wbe2l"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 100.0
+direction = Vector3(0, 0, 0)
+spread = 120.0
+initial_velocity_min = 600.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 300, 0)
+damping_min = 10.0
+damping_max = 20.0
+scale_min = 0.0
+scale_max = 3.0
+color = Color(1, 0.890196, 0.113725, 1)
+color_ramp = SubResource("GradientTexture1D_vxvt0")
+turbulence_enabled = true
+
+[node name="Dummy" type="CharacterBody2D" node_paths=PackedStringArray("hurtbox", "animator")]
+scale = Vector2(0.19, 0.19)
+collision_layer = 2
+collision_mask = 130
+motion_mode = 1
+script = ExtResource("1_swbco")
+enemy_id = "BasicEnemy1"
+movement_speed = 15000
+hurtbox = NodePath("Hurtbox")
+animator = NodePath("AnimationPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 36.585)
+scale = Vector2(2.75, 2.75)
+texture = ExtResource("2_mdi5c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 210)
+shape = SubResource("CircleShape2D_5dpew")
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_rb8tb")]
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, 35)
+shape = SubResource("CapsuleShape2D_1xuob")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d3wem")
+}
+
+[node name="KnockBackTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_wbe2l")
+one_shot = true
+speed_scale = 1.25
+explosiveness = 1.0
+randomness = 1.0
+
+[connection signal="timeout" from="KnockBackTimer" to="." method="_on_knock_back_timer_timeout"]
+
+[editable path="Hurtbox"]

@@ -11,14 +11,14 @@ var active_projectiles: Array[Area2D] = []
 # Reference to the projectile scene
 @onready var weapon_node = get_parent()
 @onready var projectile_scene: PackedScene = weapon_node.projectile_scene
-
+@onready var bullet_spread = weapon_node.bullet_spread
 
 # Function to shoot a projectile
 func shoot_projectile(weapon_range: int, damage: float, critical_hit: bool, knock_back_force: float):
 	var projectile = get_pooled_bullet()
 
 	projectile.global_position = global_position
-	projectile.global_rotation = global_rotation
+	projectile.global_rotation = global_rotation + deg_to_rad(randf_range(-1,1) * bullet_spread)
 	
 	projectile.weapon_range = weapon_range
 	projectile.damage = damage

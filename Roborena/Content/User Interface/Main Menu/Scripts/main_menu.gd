@@ -1,5 +1,3 @@
-class_name MainMenu
-
 extends Control
 
 @onready var button_start_game = %ButtonStartGame as Button

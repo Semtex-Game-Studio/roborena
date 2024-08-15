@@ -10,6 +10,7 @@ class_name EnemyClass1
 @export var animator: AnimationPlayer
 
 @onready var knock_back_timer = $KnockBackTimer
+@onready var gpu_particles_2d = $GPUParticles2D
 
 @onready var player_character = get_node("/root/Game/PlayerCharacter")
 @onready var damage_number_holder = get_node("/root/Game/Map/DamageNumberHolder")
@@ -59,8 +60,8 @@ func _play_hit_animation():
 	animator.play("hit_flash")
 
 func _spawn_particles():
-	#print("Particles spawned")
-	pass
+	gpu_particles_2d.restart()
+	gpu_particles_2d.emitting = true
 
 func _knock_back(knock_back_force: float):
 	if !applying_knock_back:

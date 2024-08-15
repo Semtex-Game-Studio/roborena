@@ -1,0 +1,124 @@
+[gd_scene load_steps=6 format=3 uid="uid://chpkt3lwydgne"]
+
+[ext_resource type="Script" path="res://Content/User Interface/Pause Menu/Scripts/pause_menu.gd" id="1_ch7or"]
+[ext_resource type="FontFile" uid="uid://yrvk65l813w7" path="res://Content/User Interface/Main Menu/Assets/font_edo/edo.ttf" id="1_j86n5"]
+[ext_resource type="PackedScene" uid="uid://gncu820iy363" path="res://Content/User Interface/OptionsMenu/options_menu.tscn" id="2_7gq3g"]
+[ext_resource type="Shader" path="res://Content/User Interface/Pause Menu/Assets/background_blur.gdshader" id="2_evucb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8c2u5"]
+shader = ExtResource("2_evucb")
+shader_parameter/amount = 2.5
+shader_parameter/darken_amount = 0.125
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ch7or")
+
+[node name="BackgroundBlur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_8c2u5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseMenuContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="TitleVBox" type="VBoxContainer" parent="PauseMenuContainer"]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="Separator" type="Control" parent="PauseMenuContainer/TitleVBox"]
+layout_mode = 2
+
+[node name="PauseTitle" type="Label" parent="PauseMenuContainer/TitleVBox"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
+theme_override_colors/font_outline_color = Color(0.491685, 0, 0.0707682, 1)
+theme_override_constants/shadow_offset_x = 24
+theme_override_constants/shadow_offset_y = 24
+theme_override_constants/outline_size = 32
+theme_override_fonts/font = ExtResource("1_j86n5")
+theme_override_font_sizes/font_size = 128
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButtonsHBox" type="HBoxContainer" parent="PauseMenuContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MenuButtonsVBox" type="VBoxContainer" parent="PauseMenuContainer/MenuButtonsHBox"]
+layout_mode = 2
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="Control" type="Control" parent="PauseMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="PauseMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="PauseMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="PauseMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+layout_mode = 2
+
+[node name="Control5" type="Control" parent="PauseMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+layout_mode = 2
+
+[node name="Control6" type="Control" parent="PauseMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+layout_mode = 2
+
+[node name="Control7" type="Control" parent="PauseMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+layout_mode = 2
+
+[node name="Control8" type="Control" parent="PauseMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+layout_mode = 2
+
+[node name="ButtonResumeGame" type="Button" parent="PauseMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(384, 96)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_j86n5")
+theme_override_font_sizes/font_size = 48
+text = "Resume Game
+"
+
+[node name="ButtonOptionsMenu" type="Button" parent="PauseMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(384, 96)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_j86n5")
+theme_override_font_sizes/font_size = 48
+text = "Options"
+
+[node name="ButtonReturnToMainMenu" type="Button" parent="PauseMenuContainer/MenuButtonsHBox/MenuButtonsVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(384, 96)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_j86n5")
+theme_override_font_sizes/font_size = 48
+text = "Main Menu"
+
+[node name="OptionsMenu" parent="." instance=ExtResource("2_7gq3g")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1

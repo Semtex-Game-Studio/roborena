@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://2qbfyon6af3o"]
+[gd_scene load_steps=26 format=3 uid="uid://2qbfyon6af3o"]
 
 [ext_resource type="Script" path="res://Content/Scenes/Enemies/Class/enemy_class.gd" id="1_n8tu3"]
 [ext_resource type="Shader" path="res://Content/Scenes/Components/Shaders/hit_flash_shader.gdshader" id="1_t42r2"]
@@ -136,6 +136,30 @@ _data = {
 "hit_flash": SubResource("Animation_fsewp")
 }
 
+[sub_resource type="Gradient" id="Gradient_ltdfo"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vxvt0"]
+gradient = SubResource("Gradient_ltdfo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wbe2l"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 100.0
+direction = Vector3(0, 0, 0)
+spread = 120.0
+initial_velocity_min = 600.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 300, 0)
+damping_min = 10.0
+damping_max = 20.0
+scale_min = 0.0
+scale_max = 3.0
+color = Color(1, 0.890196, 0.113725, 1)
+color_ramp = SubResource("GradientTexture1D_vxvt0")
+turbulence_enabled = true
+
 [node name="BasicEnemy1" type="CharacterBody2D" node_paths=PackedStringArray("hurtbox", "animator")]
 scale = Vector2(0.19, 0.19)
 collision_layer = 2
@@ -143,7 +167,7 @@ collision_mask = 130
 motion_mode = 1
 script = ExtResource("1_n8tu3")
 enemy_id = "BasicEnemy1"
-health = 40
+health = 50
 movement_speed = 15000
 hurtbox = NodePath("Hurtbox")
 animator = NodePath("AnimationPlayer")
@@ -175,6 +199,17 @@ libraries = {
 [node name="KnockBackTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_wbe2l")
+one_shot = true
+speed_scale = 1.25
+explosiveness = 1.0
+randomness = 1.0
 
 [connection signal="timeout" from="KnockBackTimer" to="." method="_on_knock_back_timer_timeout"]
 

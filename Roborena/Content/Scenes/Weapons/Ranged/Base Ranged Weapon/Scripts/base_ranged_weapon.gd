@@ -10,6 +10,7 @@ extends Node2D
 
 @export_group("Weapon specs")
 @export var base_damage: float
+@export var bullet_spread: float
 @export var crit_chance_value: float
 @export var crit_modifier: float
 @export var damage_modifier: float
@@ -17,6 +18,7 @@ extends Node2D
 @export var fire_rate_value: float
 @export var projectile_scene: PackedScene
 @export var weapon_range_value: int
+
 
 
 # Local variables
