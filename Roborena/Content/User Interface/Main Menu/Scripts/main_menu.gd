@@ -5,7 +5,6 @@ extends Control
 @onready var button_quit_game = %ButtonQuitGame as Button
 @onready var main_menu_container = $MainMenuContainer as MarginContainer
 
-@onready var game: PackedScene = preload("res://Content/Scenes/Game/game.tscn")
 @onready var options_menu = %OptionsMenu
 
 func _ready():
@@ -21,6 +20,7 @@ func signal_conncetion_handler() -> void:
 
 
 func on_start_game_pressed() -> void:
+	var game: PackedScene = load("res://Content/Scenes/Game/game.tscn")
 	get_tree().change_scene_to_packed(game)
 	
 	

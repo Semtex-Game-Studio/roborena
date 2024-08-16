@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cuaap81id0alb" path="res://Content/User Interface/Main Menu/Assets/MainMenuBackgroundGradient.png" id="1_esyxy"]
 [ext_resource type="Script" path="res://Content/User Interface/Main Menu/Scripts/main_menu.gd" id="1_gfanm"]
 [ext_resource type="FontFile" uid="uid://yrvk65l813w7" path="res://Content/User Interface/Main Menu/Assets/font_edo/edo.ttf" id="2_nqbd1"]
-[ext_resource type="PackedScene" uid="uid://gncu820iy363" path="res://Content/User Interface/OptionsMenu/options_menu.tscn" id="4_mlsjg"]
+[ext_resource type="PackedScene" uid="uid://gncu820iy363" path="res://Content/User Interface/Options Menu/options_menu.tscn" id="4_mlsjg"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3

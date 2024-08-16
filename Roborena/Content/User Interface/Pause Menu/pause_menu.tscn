@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Content/User Interface/Pause Menu/Scripts/pause_menu.gd" id="1_ch7or"]
 [ext_resource type="FontFile" uid="uid://yrvk65l813w7" path="res://Content/User Interface/Main Menu/Assets/font_edo/edo.ttf" id="1_j86n5"]
-[ext_resource type="PackedScene" uid="uid://gncu820iy363" path="res://Content/User Interface/OptionsMenu/options_menu.tscn" id="2_7gq3g"]
+[ext_resource type="PackedScene" uid="uid://gncu820iy363" path="res://Content/User Interface/Options Menu/options_menu.tscn" id="2_7gq3g"]
 [ext_resource type="Shader" path="res://Content/User Interface/Pause Menu/Assets/background_blur.gdshader" id="2_evucb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8c2u5"]

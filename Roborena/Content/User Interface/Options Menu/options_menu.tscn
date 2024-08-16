@@ -1,0 +1,349 @@
+[gd_scene load_steps=5 format=3 uid="uid://gncu820iy363"]
+
+[ext_resource type="Script" path="res://Content/User Interface/Options Menu/Scripts/options_menu.gd" id="1_g4fgb"]
+[ext_resource type="FontFile" uid="uid://yrvk65l813w7" path="res://Content/User Interface/Main Menu/Assets/font_edo/edo.ttf" id="2_hrhsd"]
+[ext_resource type="Script" path="res://Content/User Interface/Options Menu/Scripts/hotkey_rebind_button.gd" id="3_oi1t0"]
+[ext_resource type="Script" path="res://Content/User Interface/Options Menu/Scripts/video_settings.gd" id="3_x6ka3"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g4fgb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 75
+alignment = 1
+
+[node name="OptionsTitle" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hrhsd")
+theme_override_font_sizes/font_size = 64
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AllOptions" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 175
+alignment = 1
+
+[node name="LeftSideOptions" type="VBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="GeneralSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="GeneralLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/GeneralSettings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "General"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Language" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/GeneralSettings"]
+layout_mode = 2
+alignment = 1
+
+[node name="LanguageLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/GeneralSettings/Language"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Language:
+"
+vertical_alignment = 1
+
+[node name="LanguageOptions" type="OptionButton" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/GeneralSettings/Language"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+alignment = 1
+item_count = 6
+selected = 0
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Nederlands"
+popup/item_1/id = 1
+popup/item_2/text = "Deutsch"
+popup/item_2/id = 2
+popup/item_3/text = "Français"
+popup/item_3/id = 3
+popup/item_4/text = "Español"
+popup/item_4/id = 4
+popup/item_5/text = "Italiano"
+popup/item_5/id = 5
+
+[node name="VideoSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions"]
+layout_mode = 2
+theme_override_constants/separation = 16
+script = ExtResource("3_x6ka3")
+
+[node name="VideoLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/VideoSettings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Video"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resolution" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/VideoSettings"]
+layout_mode = 2
+alignment = 1
+
+[node name="ResolutionLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/VideoSettings/Resolution"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Resolution:
+"
+vertical_alignment = 1
+
+[node name="ResolutionOptionsButton" type="OptionButton" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/VideoSettings/Resolution"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="V-SyncAndFullscreen" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/VideoSettings"]
+layout_mode = 2
+alignment = 1
+
+[node name="FullscreenLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/VideoSettings/V-SyncAndFullscreen"]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Fullscreen:"
+vertical_alignment = 1
+
+[node name="FullscreenButton" type="CheckButton" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/VideoSettings/V-SyncAndFullscreen"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+button_pressed = true
+
+[node name="V-SyncLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/VideoSettings/V-SyncAndFullscreen"]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "V-Sync:"
+vertical_alignment = 1
+
+[node name="V_SyncButton" type="CheckButton" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/VideoSettings/V-SyncAndFullscreen"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+button_pressed = true
+
+[node name="AudioSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="AudioLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Audio"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterVolume" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings"]
+layout_mode = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings/MasterVolume"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Master Volume:"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings/MasterVolume"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 1
+value = 100.0
+
+[node name="MusicVolume" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings"]
+layout_mode = 2
+
+[node name="MusicVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings/MusicVolume"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Music Volume:"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings/MusicVolume"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 1
+value = 100.0
+
+[node name="SFXVolume3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings"]
+layout_mode = 2
+
+[node name="SFXVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings/SFXVolume3"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Effects Volume:"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings/SFXVolume3"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 1
+value = 100.0
+
+[node name="RightSideOptions" type="VBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="ControlsSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ControlsLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoveUp" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings"]
+layout_mode = 2
+alignment = 1
+
+[node name="MoveUpLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings/MoveUp"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Move Up:
+"
+vertical_alignment = 1
+
+[node name="HotkeyRebindButton" type="Button" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings/MoveUp"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Action Key"
+script = ExtResource("3_oi1t0")
+action_name = "Up"
+
+[node name="MoveLeft" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings"]
+layout_mode = 2
+alignment = 1
+
+[node name="MoveLeftLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings/MoveLeft"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Move Left:
+"
+vertical_alignment = 1
+
+[node name="HotkeyRebindButton" type="Button" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings/MoveLeft"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Action Key"
+script = ExtResource("3_oi1t0")
+action_name = "Left"
+
+[node name="MoveDown" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings"]
+layout_mode = 2
+alignment = 1
+
+[node name="MoveDownLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings/MoveDown"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Move Down:
+"
+vertical_alignment = 1
+
+[node name="HotkeyRebindButton" type="Button" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings/MoveDown"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Action Key"
+script = ExtResource("3_oi1t0")
+action_name = "Down"
+
+[node name="MoveRight" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings"]
+layout_mode = 2
+alignment = 1
+
+[node name="MoveRightLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings/MoveRight"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Move Right:
+"
+vertical_alignment = 1
+
+[node name="HotkeyRebindButton" type="Button" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings/MoveRight"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Action Key"
+script = ExtResource("3_oi1t0")
+action_name = "Right"
+
+[node name="Dash" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings"]
+layout_mode = 2
+alignment = 1
+
+[node name="DashLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings/Dash"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Dash:
+"
+vertical_alignment = 1
+
+[node name="HotkeyRebindButton" type="Button" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings/Dash"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Action Key"
+script = ExtResource("3_oi1t0")
+action_name = "Dash"
+
+[node name="Special" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings"]
+layout_mode = 2
+alignment = 1
+
+[node name="SpecialLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings/Special"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Special:
+"
+vertical_alignment = 1
+
+[node name="HotkeyRebindButton" type="Button" parent="MarginContainer/VBoxContainer/AllOptions/RightSideOptions/ControlsSettings/Special"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Action Key"
+script = ExtResource("3_oi1t0")
+action_name = "Dash"
+
+[node name="ButtonBack" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 24
+text = "Back"
