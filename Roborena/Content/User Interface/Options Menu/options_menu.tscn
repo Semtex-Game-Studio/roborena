@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://gncu820iy363"]
+[gd_scene load_steps=6 format=3 uid="uid://gncu820iy363"]
 
 [ext_resource type="Script" path="res://Content/User Interface/Options Menu/Scripts/options_menu.gd" id="1_g4fgb"]
 [ext_resource type="FontFile" uid="uid://yrvk65l813w7" path="res://Content/User Interface/Main Menu/Assets/font_edo/edo.ttf" id="2_hrhsd"]
 [ext_resource type="Script" path="res://Content/User Interface/Options Menu/Scripts/hotkey_rebind_button.gd" id="3_oi1t0"]
 [ext_resource type="Script" path="res://Content/User Interface/Options Menu/Scripts/video_settings.gd" id="3_x6ka3"]
+[ext_resource type="Script" path="res://Content/User Interface/Options Menu/Scripts/audio_settings.gd" id="4_6rom8"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -91,6 +92,10 @@ popup/item_4/id = 4
 popup/item_5/text = "Italiano"
 popup/item_5/id = 5
 
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/GeneralSettings/Language"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="VideoSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions"]
 layout_mode = 2
 theme_override_constants/separation = 16
@@ -121,6 +126,10 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 alignment = 1
 
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/VideoSettings/Resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="V-SyncAndFullscreen" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/VideoSettings"]
 layout_mode = 2
 alignment = 1
@@ -146,6 +155,7 @@ text = "V-Sync:"
 vertical_alignment = 1
 
 [node name="V_SyncButton" type="CheckButton" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/VideoSettings/V-SyncAndFullscreen"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 button_pressed = true
@@ -153,6 +163,7 @@ button_pressed = true
 [node name="AudioSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions"]
 layout_mode = 2
 theme_override_constants/separation = 16
+script = ExtResource("4_6rom8")
 
 [node name="AudioLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings"]
 layout_mode = 2
@@ -171,11 +182,20 @@ theme_override_font_sizes/font_size = 32
 text = "Master Volume:"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings/MasterVolume"]
-custom_minimum_size = Vector2(300, 0)
+[node name="MasterVolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings/MasterVolume"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 size_flags_vertical = 1
 value = 100.0
+
+[node name="MasterVolumePercentageLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings/MasterVolume"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "100%"
+horizontal_alignment = 2
 
 [node name="MusicVolume" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings"]
 layout_mode = 2
@@ -187,27 +207,45 @@ theme_override_font_sizes/font_size = 32
 text = "Music Volume:"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings/MusicVolume"]
-custom_minimum_size = Vector2(300, 0)
+[node name="MusicVolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings/MusicVolume"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 size_flags_vertical = 1
 value = 100.0
 
-[node name="SFXVolume3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings"]
+[node name="MusicVolumePercentageLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings/MusicVolume"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "100%"
+horizontal_alignment = 2
+
+[node name="SFXVolume" type="HBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings"]
 layout_mode = 2
 
-[node name="SFXVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings/SFXVolume3"]
+[node name="SFXVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings/SFXVolume"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Effects Volume:"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings/SFXVolume3"]
-custom_minimum_size = Vector2(300, 0)
+[node name="SFXVolumeSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings/SFXVolume"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 size_flags_vertical = 1
 value = 100.0
+
+[node name="SFXVolumePercentageLabel" type="Label" parent="MarginContainer/VBoxContainer/AllOptions/LeftSideOptions/AudioSettings/SFXVolume"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "100%"
+horizontal_alignment = 2
 
 [node name="RightSideOptions" type="VBoxContainer" parent="MarginContainer/VBoxContainer/AllOptions"]
 custom_minimum_size = Vector2(512, 0)

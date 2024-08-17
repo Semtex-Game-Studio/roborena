@@ -2,6 +2,7 @@ extends VBoxContainer
 
 @onready var fullscreen_button = %FullscreenButton
 @onready var resolution_options_button = %ResolutionOptionsButton
+@onready var v_sync_button = %V_SyncButton
 
 
 const RESOLUTION_DICTIONARY : Dictionary = {
@@ -20,15 +21,9 @@ func _ready():
 	
 	resolution_options_button.item_selected.connect(on_resolution_selected)
 	add_resolution_items()
-
-
-func check_window_state() -> void:
-	var current_window_mode = DisplayServer.window_get_mode()
 	
-	if current_window_mode == DisplayServer.WINDOW_MODE_FULLSCREEN:
-		fullscreen_button.set_pressed_no_signal(true)
-	else:
-		fullscreen_button.set_pressed_no_signal(false)
+	v_sync_button.toggled.connect(on_v_sync_toggled)
+	check_v_sync_state()
 
 
 # Resolution
@@ -61,3 +56,27 @@ func on_full_screen_toggled(toggled_on) -> void:
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		resolution_options_button.disabled = false
+
+func check_window_state() -> void:
+	var current_window_mode = DisplayServer.window_get_mode()
+	
+	if current_window_mode == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		fullscreen_button.set_pressed_no_signal(true)
+	else:
+		fullscreen_button.set_pressed_no_signal(false)
+
+
+# V-Sync
+func on_v_sync_toggled(toggled_on) -> void:
+	if toggled_on:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	else:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+
+func check_v_sync_state() -> void:
+	var current_v_sync_mode = DisplayServer.window_get_vsync_mode()
+	
+	if current_v_sync_mode == DisplayServer.VSYNC_ENABLED:
+		v_sync_button.set_pressed_no_signal(true)
+	else:
+		v_sync_button.set_pressed_no_signal(false)
