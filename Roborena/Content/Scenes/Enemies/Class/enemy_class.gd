@@ -14,6 +14,7 @@ class_name EnemyClass1
 
 @onready var player_character = get_node("/root/Game/PlayerCharacter")
 @onready var damage_number_holder = get_node("/root/Game/Map/DamageNumberHolder")
+@onready var collectable_scene = preload("res://Content/Scenes/Collectables/collectable_base.tscn")
 
 var knock_back_velocity: Vector2 = Vector2.ZERO
 var applying_knock_back: bool = false
@@ -42,6 +43,7 @@ func _on_hit(damage: int, critical_hit: bool, knock_back_force: float):
 	_knock_back(knock_back_force)
 	
 	if health <= 0:
+		drop_collectables()
 		_play_death_animation()
 	else:
 		_play_hit_animation()
@@ -73,6 +75,12 @@ func _on_knock_back_timer_timeout():
 	applying_knock_back = false
 	knock_back_velocity = 0 * Vector2(1,1)
 
+func drop_collectables():
+	var collectable = collectable_scene.instantiate()
+	collectable.position = position
+	var game_node = get_tree().root.get_node("Game")
+	game_node.add_child(collectable)
+	
 func _play_death_animation():
 	#print("Death animation played")
 	_die()
