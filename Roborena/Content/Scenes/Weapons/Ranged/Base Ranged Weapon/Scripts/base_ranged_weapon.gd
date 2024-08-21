@@ -20,7 +20,6 @@ extends Node2D
 @export var weapon_range_value: int
 
 
-
 # Local variables
 var weapon_cooldown: bool = false
 var critical_hit: bool = false
@@ -36,7 +35,7 @@ func _process(delta):
 	aim_at_closest_enemy()
 
 
-func aim_at_closest_enemy():
+func aim_at_closest_enemy() -> void:
 	var closest_enemy = enemy_detector.find_closest_enemy()
 	
 	if closest_enemy:
@@ -63,7 +62,7 @@ func calculate_damage() -> float:
 		return damage
 
 
-func apply_weapon_recoil():
+func apply_weapon_recoil() -> void:
 	var recoil_direction = Vector2(-15, 0).rotated(rotation)
 	var original_position = position
 	var recoil_position = original_position + recoil_direction
@@ -73,5 +72,5 @@ func apply_weapon_recoil():
 	recoil_tween.tween_property(self, "position", original_position, 0.025)
 
 
-func _on_rate_of_fire_timeout():
+func _on_rate_of_fire_timeout() -> void:
 	weapon_cooldown = false

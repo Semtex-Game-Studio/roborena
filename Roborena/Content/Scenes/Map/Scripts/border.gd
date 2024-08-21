@@ -32,7 +32,7 @@ func _ready():
 	border_collider.polygon = border_collider_polygon_points
 	border = float_array_to_Vector2Array(border_collider_polygon_points);
 
-func border_rotate(x, y):
+func border_rotate(x, y) -> Vector2:
 	return Vector2(x * cos_angle - y * sin_angle, x * sin_angle + y * cos_angle)
 
 func float_array_to_Vector2Array(coords : Array) -> PackedVector2Array:

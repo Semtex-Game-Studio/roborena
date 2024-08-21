@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Content/Scenes/Collectables/Scripts/collectable_base.gd" id="1_f2mka"]
 [ext_resource type="Texture2D" uid="uid://bbj2qxw7udnux" path="res://Content/Scenes/Collectables/Assets/floppy_disk.svg" id="1_sohyb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tu0yd"]
-size = Vector2(512, 512)
+[sub_resource type="CircleShape2D" id="CircleShape2D_7km7n"]
+radius = 360.0
 
 [node name="CollectableBase" type="Area2D"]
 scale = Vector2(0.075, 0.075)
@@ -16,6 +16,6 @@ currency_value = 1
 texture = ExtResource("1_sohyb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_tu0yd")
+shape = SubResource("CircleShape2D_7km7n")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxmkgcepysq2g"
-path="res://.godot/imported/bullet.svg-e4b226d2e79125e9051fa70dc926045f.ctex"
+uid="uid://c6t847x074yrd"
+path="res://.godot/imported/batteries-svgrepo-com.svg-a973e57948e2f39a06360e8e142657db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Scenes/Weapons/Projectiles/Basic Projectile 1/bullet.svg"
-dest_files=["res://.godot/imported/bullet.svg-e4b226d2e79125e9051fa70dc926045f.ctex"]
+source_file="res://Content/User Interface/Heads Up Display/Assets/batteries-svgrepo-com.svg"
+dest_files=["res://.godot/imported/batteries-svgrepo-com.svg-a973e57948e2f39a06360e8e142657db.ctex"]
 
 [params]
 

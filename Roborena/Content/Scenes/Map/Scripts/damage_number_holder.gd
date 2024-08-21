@@ -15,10 +15,12 @@ func show_damage_number(damage: int, position: Vector2, critical_hit: bool):
 	if damage_number_node:
 		# Update the Label text
 		damage_number_node.get_node("DamageNumberLabel").text = str(damage)
+		damage_number_node.animate_damage_number(critical_hit)
+		
+		# Update the Label position
 		damage_number_node.position = to_local(position)
 		damage_number_node.show()
 		active_labels.append(damage_number_node)
-		damage_number_node.animate_damage_number(critical_hit)
 		
 		# Get the AnimationPlayer and the duration of the specific animation
 		var animation_player = damage_number_node.get_node("DamageNumberLabel/DamageNumberAnimator") as AnimationPlayer
@@ -43,7 +45,7 @@ func create_damage_number_node() -> Marker2D:
 	return damage_number_node
 
 # Hide the damage number and return it to the pool
-func hide_damage_number(damage_number_node: Marker2D):
+func hide_damage_number(damage_number_node: Marker2D) -> void:
 	damage_number_node.hide()
 	active_labels.erase(damage_number_node)
 	damage_label_pool.append(damage_number_node)

@@ -47,12 +47,12 @@ func _input(event):
 
 
 # Game pausing and unpausing
-func pause_game():
+func pause_game() -> void:
 	show()
 	game_paused = true
 	Engine.time_scale = 0
 
-func unpause_game():
+func unpause_game() -> void:
 	hide()
 	Engine.time_scale = 1
 	game_paused = false

@@ -22,15 +22,15 @@ func signal_conncetion_handler() -> void:
 func on_start_game_pressed() -> void:
 	var game: PackedScene = load("res://Content/Scenes/Game/game.tscn")
 	get_tree().change_scene_to_packed(game)
-	
-	
+
+
 func on_options_menu_pressed() -> void:
 	main_menu_container.visible = false
 	options_menu.set_process(true)
 	
 	options_menu.visible = true
-	
-	
+
+
 func on_quit_game_pressed() -> void:
 	get_tree().quit()
 
@@ -38,4 +38,3 @@ func on_quit_game_pressed() -> void:
 func on_exit_options_menu() -> void:
 	options_menu.visible = false
 	main_menu_container.visible = true
-	

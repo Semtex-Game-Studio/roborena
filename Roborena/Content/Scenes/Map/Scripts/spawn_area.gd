@@ -22,7 +22,7 @@ func _ready():
 		]
 	spawn_area_collider.polygon = spawn_area_polygon_points
 
-func border_rotate(x, y):
+func border_rotate(x, y) -> Vector2:
 	return Vector2(x * cos_angle - y * sin_angle, x * sin_angle + y * cos_angle)
 
 func get_spawn_area_polygon_points():

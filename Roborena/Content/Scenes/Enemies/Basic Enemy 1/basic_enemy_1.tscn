@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://2qbfyon6af3o"]
+[gd_scene load_steps=27 format=3 uid="uid://2qbfyon6af3o"]
 
 [ext_resource type="Script" path="res://Content/Scenes/Enemies/Class/enemy_class.gd" id="1_n8tu3"]
 [ext_resource type="Shader" path="res://Content/Scenes/Components/Shaders/hit_flash_shader.gdshader" id="1_t42r2"]
@@ -160,17 +160,25 @@ color = Color(1, 0.890196, 0.113725, 1)
 color_ramp = SubResource("GradientTexture1D_vxvt0")
 turbulence_enabled = true
 
-[node name="BasicEnemy1" type="CharacterBody2D" node_paths=PackedStringArray("hurtbox", "animator")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ucbd"]
+radius = 110.0
+
+[node name="BasicEnemy1" type="CharacterBody2D" node_paths=PackedStringArray("animator", "attack_cooldown_timer", "audio_stream_player", "gpu_particles_2d", "hitbox", "hurtbox", "knock_back_timer")]
 scale = Vector2(0.19, 0.19)
 collision_layer = 2
 collision_mask = 130
 motion_mode = 1
 script = ExtResource("1_n8tu3")
-enemy_id = "BasicEnemy1"
-health = 50
-movement_speed = 15000
-hurtbox = NodePath("Hurtbox")
 animator = NodePath("AnimationPlayer")
+attack_cooldown_timer = NodePath("AttackCooldownTimer")
+audio_stream_player = NodePath("AudioStreamPlayer2D")
+gpu_particles_2d = NodePath("GPUParticles2D")
+hitbox = NodePath("HitBox")
+hurtbox = NodePath("Hurtbox")
+knock_back_timer = NodePath("KnockBackTimer")
+attack_damage = 3
+health = 50
+movement_speed = 20000
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_c1k2n")
@@ -200,8 +208,6 @@ libraries = {
 wait_time = 0.2
 one_shot = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 60
@@ -211,6 +217,23 @@ speed_scale = 1.25
 explosiveness = 1.0
 randomness = 1.0
 
+[node name="HitBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 200)
+shape = SubResource("CircleShape2D_5ucbd")
+
+[node name="AttackCooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(5.26316, 5.26316)
+
 [connection signal="timeout" from="KnockBackTimer" to="." method="_on_knock_back_timer_timeout"]
+[connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]
 
 [editable path="Hurtbox"]

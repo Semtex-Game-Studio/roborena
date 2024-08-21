@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ryiwh5p1pxl7"]
+[gd_scene load_steps=36 format=3 uid="uid://ryiwh5p1pxl7"]
 
 [ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/player_character.gd" id="1_8w1lt"]
 [ext_resource type="Texture2D" uid="uid://bwrc67unir40f" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_000.png" id="2_60uf7"]
@@ -136,6 +136,9 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gnxom"]
+radius = 22.41
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_u3lay"]
 radius = 20.025
 
@@ -150,6 +153,15 @@ animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.579839
 offset = Vector2(0, -188.571)
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_gnxom")
+debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_u3lay")

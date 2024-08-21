@@ -8,7 +8,7 @@ const BASE_ENEMY = preload("res://Content/Scenes/Enemies/Basic Enemy 1/basic_ene
 
 @onready var spawn_enemies = map.spawn_enemies
 
-func spawn_enemy():
+func spawn_enemy() -> void:
 	var new_enemy = BASE_ENEMY.instantiate()
 	var spawn_point = spawn_point_generator.get_spawn_point()
 	

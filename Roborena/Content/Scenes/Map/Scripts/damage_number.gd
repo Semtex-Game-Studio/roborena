@@ -3,7 +3,7 @@ extends Marker2D
 @onready var damage_number_animator = %DamageNumberAnimator
 
 # Function to start the animation
-func animate_damage_number(critical_hit: bool):
+func animate_damage_number(critical_hit: bool) -> void:
 	# Set the color based on whether the hit is critical
 	if critical_hit:
 		self.modulate = Color.RED

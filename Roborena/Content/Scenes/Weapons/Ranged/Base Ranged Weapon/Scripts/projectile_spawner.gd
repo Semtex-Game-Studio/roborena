@@ -5,16 +5,15 @@ extends Marker2D
 var projectile_pool: Array[Area2D] = []
 var active_projectiles: Array[Area2D] = []
 
-# The maximum number of bullets you want to pool initially
-@export var initial_pool_size: int = 10
 
 # Reference to the projectile scene
 @onready var weapon_node = get_parent()
 @onready var projectile_scene: PackedScene = weapon_node.projectile_scene
 @onready var bullet_spread = weapon_node.bullet_spread
 
+
 # Function to shoot a projectile
-func shoot_projectile(weapon_range: int, damage: float, critical_hit: bool, knock_back_force: float):
+func shoot_projectile(weapon_range: int, damage: float, critical_hit: bool, knock_back_force: float) -> void:
 	var projectile = get_pooled_bullet()
 
 	projectile.global_position = global_position
@@ -38,6 +37,7 @@ func get_pooled_bullet() -> Area2D:
 	else:
 		return create_bullet()
 
+
 # Create a new bullet instance
 func create_bullet() -> Area2D:
 	var new_projectile = projectile_scene.instantiate() as Area2D
@@ -45,8 +45,9 @@ func create_bullet() -> Area2D:
 	add_child(new_projectile)
 	return new_projectile
 
+
 # Handle bullet deactivation and return it to the pool
-func _on_bullet_deactivated(projectile: Area2D):
+func _on_bullet_deactivated(projectile: Area2D) -> void:
 	projectile.hide()
 	active_projectiles.erase(projectile)
 	projectile_pool.append(projectile)

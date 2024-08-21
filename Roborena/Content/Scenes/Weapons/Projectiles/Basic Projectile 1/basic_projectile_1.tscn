@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqmbqd3popqo8"]
 
-[ext_resource type="Texture2D" uid="uid://bxmkgcepysq2g" path="res://Content/Scenes/Weapons/Projectiles/Basic Projectile 1/bullet.svg" id="1_fu3ik"]
-[ext_resource type="Script" path="res://Content/Scenes/Weapons/Projectiles/Basic Projectile 1/basic_projectile_1.gd" id="1_xwkhr"]
+[ext_resource type="Texture2D" uid="uid://bxmkgcepysq2g" path="res://Content/Scenes/Weapons/Projectiles/Basic Projectile 1/Assets/bullet.svg" id="1_fu3ik"]
+[ext_resource type="Script" path="res://Content/Scenes/Weapons/Projectiles/Basic Projectile 1/Scripts/basic_projectile_1.gd" id="1_xwkhr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0spmw"]
 radius = 206.0

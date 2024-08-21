@@ -1,17 +1,16 @@
 extends Node2D
 
-@export var radius = 65.0  # Radius of the circle
-@export var max_weapons = 8  # Maximum number of weapons
+@export var radius: float = 65.0  # Radius of the circle
+@export var max_weapons: int = 8  # Maximum number of weapons
 
-
-var rotation_offset: float
+var rotation_offset: float = 0.0
 
 
 func _ready():
 	arrange_weapons()
 
 
-func arrange_weapons():
+func arrange_weapons() -> void:
 	var weapons_on_player = get_child_count()
 	var num_weapons = min(weapons_on_player, max_weapons)
 	
@@ -43,20 +42,3 @@ func arrange_weapons():
 		for i in range(get_child_count() - 1, num_weapons - 1, -1):
 			print("Too many weapons on the WeaponHolder")
 			remove_child(get_child(i))
-			
-
-func remove_weapon(weapon):
-	if has_node(weapon.get_path()):
-		remove_child(weapon)
-		_on_weapon_removed()
-
-
-func _on_weapon_added():
-	if get_child_count() > max_weapons:
-		for i in range(max_weapons, get_child_count()):
-			remove_child(get_child(i))
-	arrange_weapons()
-
-
-func _on_weapon_removed():
-	arrange_weapons()

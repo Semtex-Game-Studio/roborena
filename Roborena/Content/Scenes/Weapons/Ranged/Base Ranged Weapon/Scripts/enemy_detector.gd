@@ -18,4 +18,3 @@ func find_closest_enemy():
 		return closest_enemy
 		
 	return null
-				
