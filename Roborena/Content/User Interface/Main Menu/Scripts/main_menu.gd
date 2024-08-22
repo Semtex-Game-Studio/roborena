@@ -9,6 +9,7 @@ extends Control
 
 func _ready():
 	signal_conncetion_handler()
+	button_start_game.grab_focus()
 
 
 func signal_conncetion_handler() -> void:

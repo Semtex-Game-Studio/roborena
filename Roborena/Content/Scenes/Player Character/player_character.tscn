@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ryiwh5p1pxl7"]
+[gd_scene load_steps=37 format=3 uid="uid://ryiwh5p1pxl7"]
 
 [ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/player_character.gd" id="1_8w1lt"]
 [ext_resource type="Texture2D" uid="uid://bwrc67unir40f" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_000.png" id="2_60uf7"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://5caro7krp6hk" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_010.png" id="30_2kll6"]
 [ext_resource type="PackedScene" uid="uid://btu4sqmpkdh3v" path="res://Content/Scenes/Player Character/dash.tscn" id="31_bf8ji"]
 [ext_resource type="Texture2D" uid="uid://drijfpl0wv45w" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_011.png" id="31_bmplh"]
+[ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/player_hurtbox.gd" id="32_5ovop"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vtggs"]
 animations = [{
@@ -154,12 +155,13 @@ autoplay = "Idle"
 frame_progress = 0.579839
 offset = Vector2(0, -188.571)
 
-[node name="HurtBox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 0
+script = ExtResource("32_5ovop")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_gnxom")
 debug_color = Color(1, 0, 0, 0.419608)
 

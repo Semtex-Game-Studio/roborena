@@ -7,17 +7,11 @@ extends CharacterBody2D
 
 @onready var dash = $Dash
 @onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var hurt_box = %HurtBox
 
-var current_health: int
-
-func _ready():
-	current_health = max_health
 
 func _physics_process(delta):
 	handle_player_movement(delta)
 	handle_player_animations()
-
 
 func handle_player_movement(delta) -> void:
 	var input_direction = Input.get_vector("Left", "Right", "Up", "Down").normalized()
@@ -27,7 +21,6 @@ func handle_player_movement(delta) -> void:
 	if Input.is_action_just_pressed("Dash") and dash.can_dash and !dash.is_dashing():
 		dash.start_dash()
 	move_and_slide()
-
 
 func handle_player_animations() -> void:
 	# Change animations
@@ -41,10 +34,3 @@ func handle_player_animations() -> void:
 		$AnimatedSprite2D.flip_h = true
 	if velocity.x > 0.0:
 		$AnimatedSprite2D.flip_h = false
-
-
-func take_damage(damage:int):
-	current_health -= damage
-	print("current healt:", current_health)
-	if current_health <= 0:
-		print("game over")

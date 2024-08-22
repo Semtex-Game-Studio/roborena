@@ -164,7 +164,7 @@ turbulence_enabled = true
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ucbd"]
 radius = 110.0
 
-[node name="BasicEnemy1" type="CharacterBody2D" node_paths=PackedStringArray("animator", "audio_stream_player", "gpu_particles_2d", "hitbox", "hurtbox")]
+[node name="BasicEnemy1" type="CharacterBody2D" node_paths=PackedStringArray("animator", "audio_stream_player", "gpu_particles_2d", "hitbox", "hurtbox", "knock_back_timer")]
 scale = Vector2(0.19, 0.19)
 collision_layer = 2
 collision_mask = 130
@@ -175,6 +175,7 @@ audio_stream_player = NodePath("AudioStreamPlayer2D")
 gpu_particles_2d = NodePath("GPUParticles2D")
 hitbox = NodePath("Hitbox")
 hurtbox = NodePath("Hurtbox")
+knock_back_timer = NodePath("Hurtbox/KnockBackTimer")
 armor = 5
 attack_damage = 4
 health = 50

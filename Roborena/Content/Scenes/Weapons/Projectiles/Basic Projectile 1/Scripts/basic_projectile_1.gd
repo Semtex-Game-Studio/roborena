@@ -42,8 +42,8 @@ func _on_area_entered(area) -> void:
 	if has_hit:
 		return
 		
-	if area.get_parent().has_method("_on_hit"):
-		area.get_parent()._on_hit(damage, critical_hit, knock_back_force)
+	if area.has_method("on_hit"):
+		area.on_hit(damage, critical_hit, knock_back_force)
 		has_hit = true
 		projectile_spawner._on_bullet_deactivated(self)
 

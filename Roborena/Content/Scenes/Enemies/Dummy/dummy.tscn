@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://tx6pac5dhx0"]
 
-[ext_resource type="Script" path="res://Content/Scenes/Enemies/Class/enemy_class.gd" id="1_swbco"]
+[ext_resource type="Script" path="res://Content/Scenes/Enemies/Basic Enemy 1/Scripts/enemy_class.gd" id="1_swbco"]
 [ext_resource type="Texture2D" uid="uid://brt5545tl1ldr" path="res://Content/Scenes/Enemies/Dummy/Assets/shade-s-trainingdummy.png" id="2_mdi5c"]
 [ext_resource type="PackedScene" uid="uid://buofssg8pcaca" path="res://Content/Scenes/Components/Hurtboxes/hurtbox.tscn" id="3_rb8tb"]
 
