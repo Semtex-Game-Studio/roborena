@@ -1,17 +1,27 @@
 extends Area2D
 
 
+@export var collectable_id: String
 @export var currency_value: int
+@onready var has_been_collected: bool = false
+@onready var speed: float = 0.0  # Initial speed
 
-@onready var game_node: Node = get_node("/root/Game")
+var player_character_ref: CharacterBody2D = null
 
-var has_been_collected: bool = false
+func _physics_process(delta):
+	move_to_player(delta)
+	
+
+func on_collected(player_character):
+	player_character_ref = player_character
+	if has_been_collected:
+		return
+	has_been_collected = true
+
+func move_to_player(delta):
+	if has_been_collected:
+		speed += 80 * delta
+		position = position.lerp(player_character_ref.position, speed * delta)
 		
-# Function called when another body enters the collectible's area
-func _on_body_entered(body: Node) -> void:
-	if body.name == "PlayerCharacter":
-		if has_been_collected:
-			return
-		has_been_collected = true
-		game_node.player_currency += currency_value
-		queue_free()
+		if position.distance_to(player_character_ref.position) < 20:
+			queue_free()

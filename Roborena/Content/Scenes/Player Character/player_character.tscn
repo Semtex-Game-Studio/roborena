@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ryiwh5p1pxl7"]
+[gd_scene load_steps=39 format=3 uid="uid://ryiwh5p1pxl7"]
 
 [ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/player_character.gd" id="1_8w1lt"]
 [ext_resource type="Texture2D" uid="uid://bwrc67unir40f" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_000.png" id="2_60uf7"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://btu4sqmpkdh3v" path="res://Content/Scenes/Player Character/dash.tscn" id="31_bf8ji"]
 [ext_resource type="Texture2D" uid="uid://drijfpl0wv45w" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_011.png" id="31_bmplh"]
 [ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/player_hurtbox.gd" id="32_5ovop"]
+[ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/pickup_range.gd" id="34_cf0fu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vtggs"]
 animations = [{
@@ -143,6 +144,9 @@ radius = 22.41
 [sub_resource type="CircleShape2D" id="CircleShape2D_u3lay"]
 radius = 20.025
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sy2ai"]
+radius = 40.0
+
 [node name="PlayerCharacter" type="CharacterBody2D"]
 collision_mask = 128
 script = ExtResource("1_8w1lt")
@@ -169,3 +173,14 @@ debug_color = Color(1, 0, 0, 0.419608)
 shape = SubResource("CircleShape2D_u3lay")
 
 [node name="Dash" parent="." instance=ExtResource("31_bf8ji")]
+
+[node name="PickupRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 512
+script = ExtResource("34_cf0fu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRange"]
+shape = SubResource("CircleShape2D_sy2ai")
+debug_color = Color(0, 1, 0, 0.196078)
+
+[connection signal="area_entered" from="PickupRange" to="PickupRange" method="_on_area_entered"]

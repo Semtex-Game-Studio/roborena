@@ -11,7 +11,7 @@ extends Control
 
 	
 func _process(delta):
-	score_label.text = "Score: " + str(game.player_currency)
+	score_label.text = "Score: " + str(player.player_currency)
 	health_bar.max_value = player.max_health
 	health_bar.value = player_hurtbox.current_health
 	

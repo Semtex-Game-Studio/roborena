@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var dash = $Dash
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
+@onready var player_currency: int = 0
 
 func _physics_process(delta):
 	handle_player_movement(delta)

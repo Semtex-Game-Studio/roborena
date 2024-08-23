@@ -93,3 +93,4 @@ Pause={
 2d_physics/layer_4="EnemyHurtbox"
 2d_physics/layer_5="PlayerProjectileHitbox"
 2d_physics/layer_8="BorderCollision"
+2d_physics/layer_10="Collectables"

@@ -8,8 +8,10 @@ radius = 360.0
 
 [node name="CollectableBase" type="Area2D"]
 scale = Vector2(0.075, 0.075)
-collision_layer = 0
+collision_layer = 512
+collision_mask = 0
 script = ExtResource("1_f2mka")
+collectable_id = "Collectable 1"
 currency_value = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,5 +19,3 @@ texture = ExtResource("1_sohyb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7km7n")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
