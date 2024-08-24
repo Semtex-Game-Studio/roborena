@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Content/Scenes/Enemies/Basic Enemy 1/Scripts/enemy_class.gd" id="1_1y8yh"]
 [ext_resource type="Shader" path="res://Content/Scenes/Components/Shaders/hit_flash_shader.gdshader" id="1_t42r2"]
-[ext_resource type="Script" path="res://Content/Scenes/Enemies/Basic Enemy 1/hurtbox.gd" id="3_n8iek"]
+[ext_resource type="Script" path="res://Content/Scenes/Enemies/Basic Enemy 1/Scripts/hurtbox.gd" id="3_wowke"]
 [ext_resource type="Script" path="res://Content/Scenes/Enemies/Basic Enemy 1/Scripts/hitbox.gd" id="4_6tdo3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c1k2n"]
@@ -178,7 +178,7 @@ hurtbox = NodePath("Hurtbox")
 armor = 5
 attack_damage = 4
 health = 50
-movement_speed = 20000
+movement_speed = 16000
 
 [node name="EnemyAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_c1k2n")
@@ -194,7 +194,7 @@ shape = SubResource("CircleShape2D_5dpew")
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 16
-script = ExtResource("3_n8iek")
+script = ExtResource("3_wowke")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, 35)

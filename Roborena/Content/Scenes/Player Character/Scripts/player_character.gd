@@ -1,14 +1,16 @@
 extends CharacterBody2D
 
-
+@export_group("Player Stats")
 @export var movement_speed: float = 25000.0
 @export var dash_speed: float = 100000.0
 @export var max_health: int = 100
+@export var pickup_range: float = 30.0
 
 @onready var dash = $Dash
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 @onready var player_currency: int = 0
+
 
 func _physics_process(delta):
 	handle_player_movement(delta)

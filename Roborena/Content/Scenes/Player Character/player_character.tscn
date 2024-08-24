@@ -179,7 +179,8 @@ collision_layer = 0
 collision_mask = 512
 script = ExtResource("34_cf0fu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRange"]
+[node name="PickupRangeCollisionShape2D" type="CollisionShape2D" parent="PickupRange"]
+unique_name_in_owner = true
 shape = SubResource("CircleShape2D_sy2ai")
 debug_color = Color(0, 1, 0, 0.196078)
 

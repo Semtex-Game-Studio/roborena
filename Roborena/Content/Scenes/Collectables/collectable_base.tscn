@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bs21x1q03nev4"]
+[gd_scene load_steps=5 format=3 uid="uid://bs21x1q03nev4"]
 
 [ext_resource type="Script" path="res://Content/Scenes/Collectables/Scripts/collectable_base.gd" id="1_f2mka"]
 [ext_resource type="Texture2D" uid="uid://bbj2qxw7udnux" path="res://Content/Scenes/Collectables/Assets/floppy_disk.svg" id="1_sohyb"]
+[ext_resource type="AudioStream" uid="uid://bmplwrt0oon3e" path="res://Content/Scenes/Collectables/Assets/Collectable_sound.wav" id="3_7x0y5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7km7n"]
 radius = 360.0
@@ -19,3 +20,8 @@ texture = ExtResource("1_sohyb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7km7n")
+
+[node name="CollectablePickupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7x0y5")
+max_polyphony = 10
+bus = &"SFX"
