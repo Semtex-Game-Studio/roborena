@@ -6,6 +6,7 @@ extends Node2D
 @onready var rate_of_fire = %RateOfFire
 @onready var weapon_range = %WeaponRange
 @onready var projectile_spawner = %ProjectileSpawner
+@onready var weapon_sprite = %WeaponSprite
 
 
 @export_group("Weapon specs")
@@ -45,7 +46,7 @@ func aim_at_closest_enemy() -> void:
 			weapon_cooldown = true
 			projectile_spawner.shoot_projectile(weapon_range_value, calculate_damage(), critical_hit, enemy_knock_back_force)
 			rate_of_fire.start()
-			apply_weapon_recoil()
+			weapon_sprite.apply_weapon_recoil()
 			
 
 func calculate_damage() -> float:
@@ -60,16 +61,6 @@ func calculate_damage() -> float:
 		var damage: int = base_damage * damage_modifier
 		critical_hit = false
 		return damage
-
-
-func apply_weapon_recoil() -> void:
-	var recoil_direction = Vector2(-15, 0).rotated(rotation)
-	var original_position = position
-	var recoil_position = original_position + recoil_direction
-	
-	var recoil_tween = get_tree().create_tween()
-	recoil_tween.tween_property(self, "position", recoil_position, 0.025)
-	recoil_tween.tween_property(self, "position", original_position, 0.025)
 
 
 func _on_rate_of_fire_timeout() -> void:
