@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1h8te3mlv4p0"]
+
+[ext_resource type="Texture2D" uid="uid://cp77y0uylwhoa" path="res://Content/User Interface/Shop Menu/Assets/gradient_unselected.png" id="1_r8chm"]
+[ext_resource type="Texture2D" uid="uid://cyjx6uy206e2x" path="res://Content/User Interface/Shop Menu/Assets/gradient_selected.png" id="2_jwcpn"]
+[ext_resource type="Script" path="res://Content/User Interface/Shop Menu/Scripts/shop_item_card.gd" id="3_nswlp"]
+[ext_resource type="Texture2D" uid="uid://dek7n21qx2thf" path="res://Content/User Interface/Shop Menu/Assets/icon_color.png" id="4_0mdr0"]
+
+[node name="ShopItemCard" type="TextureButton"]
+clip_contents = true
+custom_minimum_size = Vector2(256, 384)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_r8chm")
+texture_hover = ExtResource("2_jwcpn")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_nswlp")
+
+[node name="ItemInfo" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="ItemNameLabel" type="Label" parent="ItemInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Item 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemIconTextureRect" type="TextureRect" parent="ItemInfo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(192, 192)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_0mdr0")
+expand_mode = 1
+
+[node name="ItemPriceLabel" type="Label" parent="ItemInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Price: inf"
+horizontal_alignment = 1
+vertical_alignment = 1

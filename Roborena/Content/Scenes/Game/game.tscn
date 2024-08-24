@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://4g3dj6fypkma"]
+[gd_scene load_steps=6 format=3 uid="uid://4g3dj6fypkma"]
 
 [ext_resource type="PackedScene" uid="uid://b0clioi6ws2sc" path="res://Content/Scenes/Map/map.tscn" id="1_0j7iy"]
 [ext_resource type="PackedScene" uid="uid://ryiwh5p1pxl7" path="res://Content/Scenes/Player Character/player_character.tscn" id="1_2gd6d"]
 [ext_resource type="Script" path="res://Content/Scenes/Game/Scripts/game.gd" id="1_p8ala"]
 [ext_resource type="PackedScene" uid="uid://chpkt3lwydgne" path="res://Content/User Interface/Pause Menu/pause_menu.tscn" id="2_lct4q"]
-[ext_resource type="PackedScene" uid="uid://6xv7d5jfin1n" path="res://Content/Scenes/Weapons/Weapon Holder/weapon_holder.tscn" id="2_nflvd"]
-[ext_resource type="PackedScene" uid="uid://dnq2hbjjnx7br" path="res://Content/Scenes/Weapons/Ranged/Base Ranged Weapon/base_ranged_weapon.tscn" id="3_gw6ai"]
 [ext_resource type="PackedScene" uid="uid://le0ldp8ksr67" path="res://Content/User Interface/Heads Up Display/HUD.tscn" id="3_wyxi3"]
 
 [node name="Game" type="Node2D"]
@@ -27,48 +25,6 @@ limit_left = -1200
 limit_top = -1200
 limit_right = 1200
 limit_bottom = 1200
-
-[node name="WeaponHolder" parent="PlayerCharacter" instance=ExtResource("2_nflvd")]
-
-[node name="BaseRangedWeapon6" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
-position = Vector2(0, 20)
-base_damage = 10.0
-bullet_spread = 3.0
-crit_chance_value = 0.1
-crit_modifier = 2.0
-damage_modifier = 1.0
-fire_rate_value = 1.86
-weapon_range_value = 500
-
-[node name="BaseRangedWeapon7" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
-position = Vector2(0, 20)
-base_damage = 10.0
-bullet_spread = 3.0
-crit_chance_value = 0.1
-crit_modifier = 2.0
-damage_modifier = 1.0
-fire_rate_value = 1.86
-weapon_range_value = 500
-
-[node name="BaseRangedWeapon8" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
-position = Vector2(0, 20)
-base_damage = 10.0
-bullet_spread = 3.0
-crit_chance_value = 0.1
-crit_modifier = 2.0
-damage_modifier = 1.0
-fire_rate_value = 1.86
-weapon_range_value = 500
-
-[node name="BaseRangedWeapon9" parent="PlayerCharacter/WeaponHolder" instance=ExtResource("3_gw6ai")]
-position = Vector2(0, 20)
-base_damage = 10.0
-bullet_spread = 3.0
-crit_chance_value = 0.1
-crit_modifier = 2.0
-damage_modifier = 1.0
-fire_rate_value = 1.86
-weapon_range_value = 500
 
 [node name="Map" parent="." instance=ExtResource("1_0j7iy")]
 poly_size_spawner = 590
