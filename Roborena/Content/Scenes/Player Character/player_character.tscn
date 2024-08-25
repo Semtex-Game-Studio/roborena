@@ -1,9 +1,12 @@
-[gd_scene load_steps=41 format=3 uid="uid://ryiwh5p1pxl7"]
+[gd_scene load_steps=44 format=3 uid="uid://ryiwh5p1pxl7"]
 
 [ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/player_character.gd" id="1_8w1lt"]
 [ext_resource type="Texture2D" uid="uid://bwrc67unir40f" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_000.png" id="2_60uf7"]
+[ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/player_character_movement_handler.gd" id="2_fvyu2"]
+[ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/player_character_stats_manager.gd" id="3_c53ha"]
 [ext_resource type="Texture2D" uid="uid://cdi7voq8m1twf" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_001.png" id="3_s0j5k"]
 [ext_resource type="Texture2D" uid="uid://haedgepit57e" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_002.png" id="4_00rlm"]
+[ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/player_character_items_holder.gd" id="4_g5orj"]
 [ext_resource type="Texture2D" uid="uid://r06t13svg1gr" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_003.png" id="5_6q8h0"]
 [ext_resource type="Texture2D" uid="uid://c2yikbnr6sqwv" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_004.png" id="6_gg28h"]
 [ext_resource type="Texture2D" uid="uid://giyhqvb1fw5x" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_005.png" id="7_ln647"]
@@ -31,10 +34,10 @@
 [ext_resource type="Texture2D" uid="uid://bkucg1mp1on70" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_009.png" id="29_ppk4n"]
 [ext_resource type="Texture2D" uid="uid://5caro7krp6hk" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_010.png" id="30_2kll6"]
 [ext_resource type="Texture2D" uid="uid://drijfpl0wv45w" path="res://Content/Scenes/Player Character/Assets/Animations/Running/0_Reaper_Man_Running_011.png" id="31_bmplh"]
-[ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/player_hurtbox.gd" id="32_5ovop"]
-[ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/player_animation_handler.gd" id="32_j04ek"]
-[ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/pickup_range.gd" id="34_cf0fu"]
-[ext_resource type="PackedScene" uid="uid://6xv7d5jfin1n" path="res://Content/Scenes/Player Character/weapon_holder.tscn" id="36_xjvmm"]
+[ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/player_character_hurtbox.gd" id="32_5ovop"]
+[ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/player_character_animation_handler.gd" id="32_j04ek"]
+[ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/player_character_pickup_range.gd" id="34_cf0fu"]
+[ext_resource type="PackedScene" uid="uid://6xv7d5jfin1n" path="res://Content/Scenes/Player Character/player_character_weapon_holder.tscn" id="36_xjvmm"]
 [ext_resource type="PackedScene" uid="uid://dnq2hbjjnx7br" path="res://Content/Scenes/Weapons/Ranged/Base Ranged Weapon/base_ranged_weapon.tscn" id="37_pj23y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u3lay"]
@@ -147,11 +150,75 @@ animations = [{
 radius = 22.41
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sy2ai"]
-radius = 40.0
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
 collision_mask = 128
 script = ExtResource("1_8w1lt")
+base_pickup_range = 100.0
+
+[node name="PlayerCharacterMovementHandler" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_fvyu2")
+
+[node name="PlayerCharacterStatsManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_c53ha")
+
+[node name="PlayerCharacterItemsHolder" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_g5orj")
+
+[node name="PlayerCharacterWeaponHolder" parent="." instance=ExtResource("36_xjvmm")]
+
+[node name="BaseRangedWeapon" parent="PlayerCharacterWeaponHolder" instance=ExtResource("37_pj23y")]
+position = Vector2(0, 20)
+base_damage = 10.0
+crit_chance_value = 0.2
+crit_modifier = 2.0
+damage_modifier = 1.0
+enemy_knock_back_force = 1.0
+fire_rate_value = 2.0
+weapon_range_value = 300
+
+[node name="BaseRangedWeapon2" parent="PlayerCharacterWeaponHolder" instance=ExtResource("37_pj23y")]
+position = Vector2(0, 20)
+base_damage = 10.0
+crit_chance_value = 0.2
+crit_modifier = 2.0
+damage_modifier = 1.0
+enemy_knock_back_force = 1.0
+fire_rate_value = 2.0
+weapon_range_value = 300
+
+[node name="BaseRangedWeapon3" parent="PlayerCharacterWeaponHolder" instance=ExtResource("37_pj23y")]
+position = Vector2(0, 20)
+base_damage = 10.0
+crit_chance_value = 0.2
+crit_modifier = 2.0
+damage_modifier = 1.0
+enemy_knock_back_force = 1.0
+fire_rate_value = 2.0
+weapon_range_value = 300
+
+[node name="BaseRangedWeapon4" parent="PlayerCharacterWeaponHolder" instance=ExtResource("37_pj23y")]
+position = Vector2(0, 20)
+base_damage = 10.0
+crit_chance_value = 0.2
+crit_modifier = 2.0
+damage_modifier = 1.0
+enemy_knock_back_force = 1.0
+fire_rate_value = 2.0
+weapon_range_value = 300
+
+[node name="BaseRangedWeapon5" parent="PlayerCharacterWeaponHolder" instance=ExtResource("37_pj23y")]
+position = Vector2(0, 20)
+base_damage = 10.0
+crit_chance_value = 0.2
+crit_modifier = 2.0
+damage_modifier = 1.0
+enemy_knock_back_force = 1.0
+fire_rate_value = 2.0
+weapon_range_value = 300
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_u3lay")
@@ -165,76 +232,24 @@ frame_progress = 0.579839
 offset = Vector2(0, -188.571)
 script = ExtResource("32_j04ek")
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="PlayerCharacterHurtbox" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("32_5ovop")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacterHurtbox"]
 shape = SubResource("CircleShape2D_gnxom")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="PickupRange" type="Area2D" parent="."]
+[node name="PlayerCharacterPickupRange" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 512
 script = ExtResource("34_cf0fu")
 
-[node name="PickupRangeCollisionShape2D" type="CollisionShape2D" parent="PickupRange"]
+[node name="PickupRangeCollisionShape2D" type="CollisionShape2D" parent="PlayerCharacterPickupRange"]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_sy2ai")
 debug_color = Color(0, 1, 0, 0.196078)
 
-[node name="WeaponHolder" parent="." instance=ExtResource("36_xjvmm")]
-
-[node name="BaseRangedWeapon" parent="WeaponHolder" instance=ExtResource("37_pj23y")]
-position = Vector2(0, 20)
-base_damage = 10.0
-crit_chance_value = 0.2
-crit_modifier = 2.0
-damage_modifier = 1.0
-enemy_knock_back_force = 1.0
-fire_rate_value = 2.0
-weapon_range_value = 300
-
-[node name="BaseRangedWeapon2" parent="WeaponHolder" instance=ExtResource("37_pj23y")]
-position = Vector2(0, 20)
-base_damage = 10.0
-crit_chance_value = 0.2
-crit_modifier = 2.0
-damage_modifier = 1.0
-enemy_knock_back_force = 1.0
-fire_rate_value = 2.0
-weapon_range_value = 300
-
-[node name="BaseRangedWeapon3" parent="WeaponHolder" instance=ExtResource("37_pj23y")]
-position = Vector2(0, 20)
-base_damage = 10.0
-crit_chance_value = 0.2
-crit_modifier = 2.0
-damage_modifier = 1.0
-enemy_knock_back_force = 1.0
-fire_rate_value = 2.0
-weapon_range_value = 300
-
-[node name="BaseRangedWeapon4" parent="WeaponHolder" instance=ExtResource("37_pj23y")]
-position = Vector2(0, 20)
-base_damage = 10.0
-crit_chance_value = 0.2
-crit_modifier = 2.0
-damage_modifier = 1.0
-enemy_knock_back_force = 1.0
-fire_rate_value = 2.0
-weapon_range_value = 300
-
-[node name="BaseRangedWeapon5" parent="WeaponHolder" instance=ExtResource("37_pj23y")]
-position = Vector2(0, 20)
-base_damage = 10.0
-crit_chance_value = 0.2
-crit_modifier = 2.0
-damage_modifier = 1.0
-enemy_knock_back_force = 1.0
-fire_rate_value = 2.0
-weapon_range_value = 300
-
-[connection signal="area_entered" from="PickupRange" to="PickupRange" method="_on_area_entered"]
+[connection signal="area_entered" from="PlayerCharacterPickupRange" to="PlayerCharacterPickupRange" method="_on_area_entered"]

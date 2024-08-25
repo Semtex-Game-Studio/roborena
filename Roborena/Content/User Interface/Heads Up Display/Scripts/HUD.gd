@@ -3,7 +3,7 @@ extends Control
 
 @onready var game = get_parent().get_parent()
 @onready var player = game.get_node("PlayerCharacter")
-@onready var player_hurtbox = player.get_node("Hurtbox")
+@onready var player_hurtbox = player.get_node("PlayerCharacterHurtbox")
 
 @onready var score_label = %ScoreLabel
 @onready var health_bar = %HealthBar
