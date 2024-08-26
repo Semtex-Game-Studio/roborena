@@ -167,68 +167,61 @@ script = ExtResource("4_g5orj")
 
 [node name="Item 1" type="Node2D" parent="PlayerCharacterItemsHolder"]
 script = ExtResource("5_lhmiq")
-max_health_addition = 20
 
 [node name="Item 2" type="Node2D" parent="PlayerCharacterItemsHolder"]
 script = ExtResource("5_lhmiq")
-max_health_addition = 30
-pickup_range_addition = 80.0
 
 [node name="PlayerCharacterMovementHandler" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_fvyu2")
 
 [node name="PlayerCharacterWeaponHolder" parent="." instance=ExtResource("36_xjvmm")]
+unique_name_in_owner = true
 
 [node name="BaseRangedWeapon" parent="PlayerCharacterWeaponHolder" instance=ExtResource("37_pj23y")]
 position = Vector2(0, 20)
-base_damage = 10.0
-crit_chance_value = 0.2
-crit_modifier = 2.0
-damage_modifier = 1.0
-enemy_knock_back_force = 1.0
-fire_rate_value = 2.0
-weapon_range_value = 300
+base_weapon_damage = 10.0
+base_bullet_spread = 0.2
+base_crit_chance_value = 0.2
+base_crit_modifier = 2.0
+base_fire_rate_value = 1.5
+base_weapon_range_value = 300
 
 [node name="BaseRangedWeapon2" parent="PlayerCharacterWeaponHolder" instance=ExtResource("37_pj23y")]
 position = Vector2(0, 20)
-base_damage = 10.0
-crit_chance_value = 0.2
-crit_modifier = 2.0
-damage_modifier = 1.0
-enemy_knock_back_force = 1.0
-fire_rate_value = 2.0
-weapon_range_value = 300
+base_weapon_damage = 10.0
+base_bullet_spread = 0.2
+base_crit_chance_value = 0.2
+base_crit_modifier = 2.0
+base_fire_rate_value = 1.5
+base_weapon_range_value = 300
 
 [node name="BaseRangedWeapon3" parent="PlayerCharacterWeaponHolder" instance=ExtResource("37_pj23y")]
 position = Vector2(0, 20)
-base_damage = 10.0
-crit_chance_value = 0.2
-crit_modifier = 2.0
-damage_modifier = 1.0
-enemy_knock_back_force = 1.0
-fire_rate_value = 2.0
-weapon_range_value = 300
+base_weapon_damage = 10.0
+base_bullet_spread = 0.2
+base_crit_chance_value = 0.2
+base_crit_modifier = 2.0
+base_fire_rate_value = 1.5
+base_weapon_range_value = 300
 
 [node name="BaseRangedWeapon4" parent="PlayerCharacterWeaponHolder" instance=ExtResource("37_pj23y")]
 position = Vector2(0, 20)
-base_damage = 10.0
-crit_chance_value = 0.2
-crit_modifier = 2.0
-damage_modifier = 1.0
-enemy_knock_back_force = 1.0
-fire_rate_value = 2.0
-weapon_range_value = 300
+base_weapon_damage = 10.0
+base_bullet_spread = 0.2
+base_crit_chance_value = 0.2
+base_crit_modifier = 2.0
+base_fire_rate_value = 1.5
+base_weapon_range_value = 300
 
 [node name="BaseRangedWeapon5" parent="PlayerCharacterWeaponHolder" instance=ExtResource("37_pj23y")]
 position = Vector2(0, 20)
-base_damage = 10.0
-crit_chance_value = 0.2
-crit_modifier = 2.0
-damage_modifier = 1.0
-enemy_knock_back_force = 1.0
-fire_rate_value = 2.0
-weapon_range_value = 300
+base_weapon_damage = 10.0
+base_bullet_spread = 0.2
+base_crit_chance_value = 0.2
+base_crit_modifier = 2.0
+base_fire_rate_value = 1.5
+base_weapon_range_value = 300
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_u3lay")

@@ -23,10 +23,8 @@ var pickup_range: float
 @onready var player_character_stats_manager: Node2D = %PlayerCharacterStatsManager
 @onready var player_character_items_holder: Node2D = %PlayerCharacterItemsHolder
 @onready var player_character_movement_handler: Node2D = %PlayerCharacterMovementHandler
-
 @onready var player_character_hurtbox: Area2D = %PlayerCharacterHurtbox
 @onready var player_character_pickup_range: Area2D = %PlayerCharacterPickupRange
-
 
 func _ready():
 	initialize_stats()
@@ -58,11 +56,11 @@ func _update_dependent_nodes() -> void:
 
 func _on_item_added(item: Item) -> void:
 	item.apply_effects()
-	update_stats()
+	update_stats()  # Update stats to reflect item effects
 
 func _on_item_removed(item: Item) -> void:
 	item.remove_effects()
-	update_stats()
+	update_stats()  # Update stats to reflect item removal
 
 func apply_initial_items() -> void:
 	for item in player_character_items_holder.get_children():
