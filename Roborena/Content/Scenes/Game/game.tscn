@@ -18,7 +18,6 @@ unique_name_in_owner = true
 visible = false
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_2gd6d")]
-motion_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
 limit_left = -1200

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://ryiwh5p1pxl7"]
+[gd_scene load_steps=45 format=3 uid="uid://ryiwh5p1pxl7"]
 
 [ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/player_character.gd" id="1_8w1lt"]
 [ext_resource type="Texture2D" uid="uid://bwrc67unir40f" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_000.png" id="2_60uf7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://haedgepit57e" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_002.png" id="4_00rlm"]
 [ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/player_character_items_holder.gd" id="4_g5orj"]
 [ext_resource type="Texture2D" uid="uid://r06t13svg1gr" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_003.png" id="5_6q8h0"]
+[ext_resource type="Script" path="res://Content/Scenes/Player Character/Scripts/item_base.gd" id="5_lhmiq"]
 [ext_resource type="Texture2D" uid="uid://c2yikbnr6sqwv" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_004.png" id="6_gg28h"]
 [ext_resource type="Texture2D" uid="uid://giyhqvb1fw5x" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_005.png" id="7_ln647"]
 [ext_resource type="Texture2D" uid="uid://xq4auk10m1so" path="res://Content/Scenes/Player Character/Assets/Animations/Idle/0_Reaper_Man_Idle_006.png" id="8_fncox"]
@@ -153,12 +154,8 @@ radius = 22.41
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
 collision_mask = 128
+motion_mode = 1
 script = ExtResource("1_8w1lt")
-base_pickup_range = 100.0
-
-[node name="PlayerCharacterMovementHandler" type="Node2D" parent="."]
-unique_name_in_owner = true
-script = ExtResource("2_fvyu2")
 
 [node name="PlayerCharacterStatsManager" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -167,6 +164,19 @@ script = ExtResource("3_c53ha")
 [node name="PlayerCharacterItemsHolder" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_g5orj")
+
+[node name="Item 1" type="Node2D" parent="PlayerCharacterItemsHolder"]
+script = ExtResource("5_lhmiq")
+max_health_addition = 20
+
+[node name="Item 2" type="Node2D" parent="PlayerCharacterItemsHolder"]
+script = ExtResource("5_lhmiq")
+max_health_addition = 30
+pickup_range_addition = 80.0
+
+[node name="PlayerCharacterMovementHandler" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_fvyu2")
 
 [node name="PlayerCharacterWeaponHolder" parent="." instance=ExtResource("36_xjvmm")]
 
@@ -243,6 +253,7 @@ shape = SubResource("CircleShape2D_gnxom")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="PlayerCharacterPickupRange" type="Area2D" parent="."]
+unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 512
 script = ExtResource("34_cf0fu")
