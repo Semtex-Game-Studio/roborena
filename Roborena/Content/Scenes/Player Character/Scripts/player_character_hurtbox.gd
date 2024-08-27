@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var player_character: CharacterBody2D = get_parent()  # Ensure this references the correct player node
+@onready var player_character: CharacterBody2D = get_parent()
 
 var max_health: int
 var current_health: int

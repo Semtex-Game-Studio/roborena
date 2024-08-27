@@ -9,7 +9,7 @@ func _ready():
 func _on_area_entered(area):
 	if area.collectable_id == "Collectable 1":
 		area.on_collected(player_character)
-		player_character.player_currency += area.currency_value
+		player_character.currency += area.currency_value
 
 func update_stats(pickup_range_new: float) -> void:
 	pickup_range_collision_shape_2d.shape.radius = pickup_range_new

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://tnikgdgsctkr"]
+
+[ext_resource type="Script" path="res://Content/Scenes/Items/Scripts/item_resource_script.gd" id="1_jsvcb"]
+
+[resource]
+script = ExtResource("1_jsvcb")
+item_name = "boots"
+item_rarity = 0
+movement_speed_multiplier = 0.8
+dash_speed_multiplier = 0.8
+max_health_addition = -20
+pickup_range_addition = 60.0
+dash_duration_addition = 10.0
+dash_cooldown_addition = 0.0
+weapon_damage_multiplier = 1.0
+fire_rate_multiplier = 1.0
+crit_chance_addition = 0.0
+crit_modifier_multiplier = 1.0
+knockback_force_multiplier = 1.0
+bullet_spread_multiplier = 1.0
+weapon_range_addition = 0
