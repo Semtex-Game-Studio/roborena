@@ -20,22 +20,23 @@ var knock_back_velocity: Vector2 = Vector2.ZERO
 # Function called when the enemy is hit
 func on_hit(damage: int, critical_hit: bool, knock_back_force: float) -> void:
 	take_damage(damage)
-	display_damage_number(damage, critical_hit)
 	spawn_particles()
 	knock_back(knock_back_force)
 	
 	if health <= 0:
 		play_death_animation()
+		display_damage_number("K.O.", critical_hit)
 	else:
 		play_hit_animation()
+		display_damage_number(str(damage), critical_hit)
 
 # Reduces the enemy's health by the damage amount
 func take_damage(damage: int) -> void:
 	health -= damage
 
 # Displays the damage number at the enemy's position
-func display_damage_number(damage: int, critical_hit: bool) -> void:
-	damage_number_holder.show_damage_number(damage, global_position, critical_hit)
+func display_damage_number(damage_label: String, critical_hit: bool) -> void:
+	damage_number_holder.show_damage_number(damage_label, global_position, critical_hit)
 
 # Plays the hit animation
 func play_hit_animation() -> void:

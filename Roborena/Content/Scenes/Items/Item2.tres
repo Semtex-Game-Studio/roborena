@@ -6,12 +6,12 @@
 script = ExtResource("1_jsvcb")
 item_name = "boots"
 item_rarity = 0
-movement_speed_multiplier = 0.8
-dash_speed_multiplier = 0.8
+movement_speed_multiplier = 1.0
+dash_speed_multiplier = 1.0
 max_health_addition = -20
-pickup_range_addition = 60.0
+pickup_range_addition = 90.0
 dash_duration_addition = 10.0
-dash_cooldown_addition = 0.0
+dash_cooldown_addition = 0.6
 weapon_damage_multiplier = 1.0
 fire_rate_multiplier = 1.0
 crit_chance_addition = 0.0

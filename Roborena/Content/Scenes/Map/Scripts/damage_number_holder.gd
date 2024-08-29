@@ -10,11 +10,11 @@ var active_labels: Array[Marker2D] = []
 
 
 # Function to show damage number
-func show_damage_number(damage: int, position: Vector2, critical_hit: bool):
+func show_damage_number(damage: String, position: Vector2, critical_hit: bool):
 	var damage_number_node = get_pooled_label()
 	if damage_number_node:
 		# Update the Label text
-		damage_number_node.get_node("DamageNumberLabel").text = str(damage)
+		damage_number_node.get_node("DamageNumberLabel").text = damage
 		damage_number_node.animate_damage_number(critical_hit)
 		
 		# Update the Label position

@@ -13,7 +13,3 @@ func take_damage(damage: int) -> void:
 	current_health -= damage
 	if current_health <= 0:
 		current_health = 0
-
-func update_stats(max_health_new: int) -> void:
-	max_health = max_health_new
-	current_health = max_health

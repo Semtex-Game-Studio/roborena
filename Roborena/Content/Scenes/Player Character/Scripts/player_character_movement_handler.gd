@@ -12,11 +12,10 @@ var dash_time_left: float = 0.0
 var dash_cooldown_time_left: float = 0.0
 
 func _ready():
-	if player_character:
-		movement_speed = player_character.movement_speed
-		dash_duration = player_character.dash_duration
-		dash_cooldown = player_character.dash_cooldown
-		dash_speed_multiplier = player_character.dash_speed_multiplier
+	movement_speed = player_character.movement_speed
+	dash_duration = player_character.dash_duration
+	dash_cooldown = player_character.dash_cooldown
+	dash_speed_multiplier = player_character.dash_speed_multiplier
 
 func _physics_process(delta: float) -> void:
 	handle_dash(delta)
@@ -44,9 +43,3 @@ func handle_dash(delta: float) -> void:
 	elif Input.is_action_just_pressed("Dash") and dash_cooldown_time_left <= 0:
 		is_dashing = true
 		dash_time_left = dash_duration
-
-func update_stats(movement_speed_new: float, dash_duration_new: float, dash_cooldown_new: float, dash_speed_multiplier_new: float) -> void:
-	movement_speed = movement_speed_new
-	dash_duration = dash_duration_new
-	dash_cooldown = dash_cooldown_new
-	dash_speed_multiplier = dash_speed_multiplier_new
