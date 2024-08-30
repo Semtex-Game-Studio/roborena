@@ -1,29 +1,43 @@
 extends CharacterBody2D
 
-# Base Player Stats (Exported)
+# Base player stats
+@export_group("Base Player Stats")
 @export var base_movement_speed: float = 25000.0
-@export var base_dash_speed_multiplier: float = 1.8
+@export var base_dash_speed: float = 45000.0
 @export var base_dash_duration: float = 0.8
 @export var base_dash_cooldown: float = 1.0
 @export var base_max_health: int = 20
-@export var base_pickup_range: float = 40.0
+@export var base_pickup_range: int = 40
 
-# Calculated Player Stats (modified by items)
-var movement_speed: float
-var dash_speed_multiplier: float
-var dash_duration: float
-var dash_cooldown: float
-var max_health: int
-var pickup_range: float
+# Dynamic player stats
+var movement_speed: float = base_movement_speed
+var dash_speed: float = base_dash_speed
+var dash_duration: float = base_dash_duration
+var dash_cooldown: float = base_dash_cooldown
+var max_health: int = base_max_health
+var pickup_range: int = base_pickup_range
 
+
+@onready var player_character_pickup_range = %PlayerCharacterPickupRange
 @onready var currency: int = 0
-@onready var player_character_item_handler = %PlayerCharacterItemHandler
 
+
+func update_stats(
+		total_movement_speed_multiplier,
+		total_dash_speed_multiplier,
+		total_dash_duration_addition,
+		total_dash_cooldown_addition,
+		total_max_health_addition,
+		total_pickup_range_addition
+	):
+	# Multiplicative bonuses
+	self.movement_speed = base_movement_speed * total_movement_speed_multiplier
+	self.dash_speed = base_dash_speed * total_dash_speed_multiplier
 	
-func update_stats(movement_speed, dash_speed_multiplier, max_health, pickup_range, dash_duration, dash_cooldown):
-	self.movement_speed = movement_speed
-	self.dash_speed_multiplier = dash_speed_multiplier
-	self.max_health = max_health
-	self.pickup_range = pickup_range
-	self.dash_duration = dash_duration
-	self.dash_cooldown = dash_cooldown
+	# Additive bonuses
+	self.dash_duration = base_dash_duration + total_dash_duration_addition 
+	self.dash_cooldown = base_dash_cooldown + total_dash_cooldown_addition
+	self.max_health = base_max_health + total_max_health_addition
+	self.pickup_range = base_pickup_range + total_pickup_range_addition
+	
+	player_character_pickup_range.update_stats(self.pickup_range)

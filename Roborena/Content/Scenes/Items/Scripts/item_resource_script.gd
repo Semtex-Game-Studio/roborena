@@ -10,7 +10,7 @@ class_name Item
 @export var movement_speed_multiplier: float = 1.0
 @export var dash_speed_multiplier: float = 1.0
 @export var max_health_addition: int = 0
-@export var pickup_range_addition: float = 0.0
+@export var pickup_range_addition: int = 0
 @export var dash_duration_addition: float = 0.0
 @export var dash_cooldown_addition: float = 0.0
 

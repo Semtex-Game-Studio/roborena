@@ -3,7 +3,7 @@ extends Node2D
 @onready var player_character: CharacterBody2D = get_parent()
 
 var movement_speed: float
-var dash_speed_multiplier: float
+var dash_speed: float
 var dash_duration: float
 var dash_cooldown: float
 
@@ -15,7 +15,7 @@ func _ready():
 	movement_speed = player_character.movement_speed
 	dash_duration = player_character.dash_duration
 	dash_cooldown = player_character.dash_cooldown
-	dash_speed_multiplier = player_character.dash_speed_multiplier
+	dash_speed = player_character.dash_speed
 
 func _physics_process(delta: float) -> void:
 	handle_dash(delta)
@@ -26,7 +26,7 @@ func handle_player_movement(delta: float) -> void:
 	var speed = movement_speed
 	
 	if is_dashing:
-		speed *= dash_speed_multiplier
+		speed = dash_speed
 	
 	player_character.velocity = input_direction * speed * delta
 	player_character.move_and_slide()
